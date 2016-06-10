@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/***********************************************************************************************************************
+ * Stats overlay elements
+ */
+
+#wrtcStats {
+  display: block;
+  position: fixed;
+  margin: 0;
+  border:2px solid grey;
+  overflow: scroll;
+  left:5px;right:5px; top:5px; bottom:5px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#wrtcStats1 {
+  display: block;
+  position: relative;
+  overflow: scroll;
+  top: 0px;
+  height: 80px; width: 100%;
+}
+
+#wrtcStats2 {
+  display: block;
+  position: relative;
+  overflow: scroll;
+  height: 100%; width: 100%;
+}
+
+#wrtcStats.wrtcHidden {
+  display: none;
+}
+
+#wrtcStats h3 {
+  font-weight: bold;
+}
+

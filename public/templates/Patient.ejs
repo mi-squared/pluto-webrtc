@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <%
+  var config = {};
+  config.title = 'Multiuser Video Chat';
+  config.chromeExtension = true;
+  %>
+
+  <% include ../templates/partials/head.ejs %>
+
+  <link rel="stylesheet" type="text/css" href="./skins/default/css/wrtcChat.css">
+  <link rel="stylesheet" type="text/css" href="./skins/default/css/wrtcDefault.css">
+
+  <% include ../templates/partials/userlist-user-templates.ejs %>
+  <% include ../templates/partials/chat-msg-templates.ejs %>
+
+</head>
+<body>
+  <div id="page1" class="wrapper" style="display:none">
+    <div class="header-outer">
+      <div class="logo">
+        <img src="skins/VideoConference/images/wellstats_logo.png" width="199" height="63" />
+      </div>
+    </div>
+    <div class="center">
+      <div class="title">
+        Free, simple video chat
+      </div>
+      <div class="elegant-aero">
+        <input type="text"   id="wrtcNameInput"       placeholder="Your Full Name">
+        <input type="text"   id="wrtcYourEmailInput"  placeholder="Your Email Address (Optional)">
+        <input type="text"   id="wrtcOtherEmailInput" placeholder="Other Party Email Address">
+        <input type="button" id="btnStartEmailCall"   class="wrtcButton button" value="Start Video Conference">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Temp workaround to keep compatibility with GENERIC -->
+  <div id="page2">
+  </div>
+  <!-- Temp workaround to keep compatibility with GENERIC -->
+
+  <% include ../templates/partials/hidden_inputs.ejs %>
+
+  <% include ../templates/partials/remote_video_holder.ejs %>
+
+  <div class="wrtcChatArea">
+
+    <div id="wrtcStartInfo" style="visibility:hidden">
+      <div id="wrtcStartInfoText">
+      </div>
+      <!--input type="submit" id='copy_link' class="submit_bt wrtcBtn wrtcClipBtn " data-clipboard-target="link" value=""/-->
+      <% include ../templates/partials/source_2_select.ejs %>
+      <br>
+      <% include ../templates/partials/basic_buttons.ejs %>
+    </div>
+
+    <!-- Chat area -->
+    <div id="wrtcChatLog">
+    </div>
+
+    <div id="wrtcChatInputGroup">
+      <input type="text"   id="wrtcChatInput" autofocus>
+      <input type="submit" id="wrtcChatButton" value="Send">
+    </div>
+    <!-- Chat area -->
+
+  </div>
+
+  <% include ../templates/partials/local_video_holder.ejs %>
+
+  <% include ../templates/partials/stats.ejs %>
+
+</body>
+
+<% include ../templates/partials/spinner.ejs %>
+
+</html>

@@ -1,0 +1,142 @@
+.wrtcRemoteVideoHolder {
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px; }
+
+.wrtcLocalVideoHolder,
+.wrtcContainerWrapper {
+  height: 100%;
+  width: 100%; }
+
+.wrtcContainer.wrtcLocal {
+  border: 1px solid #ffffff; }
+.wrtcContainer.wrtcRemote {
+  border: none; }
+
+.wrtcOverlay .wrtcPanel.wrtcBottom {
+  top: 3px; }
+.wrtcOverlay .wrtcPanel.wrtcTop {
+  top: unset;
+  bottom: 3px; }
+
+.wrtcLocal .wrtcText {
+  font-size: 14px;
+  font-weight: 600; }
+.wrtcLocal .wrtcPanel.wrtcBottom {
+  display: none; }
+
+.wrtcRemote .wrtcText {
+  font-size: 20px;
+  font-weight: bold; }
+.wrtcRemote .wrtcPanel.wrtcTop {
+  bottom: 14px; }
+
+.callign-section {
+  background-image: none; }
+
+.caller {
+  background-image: none;
+  border: none;
+  bottom: 0;
+  right: 0; }
+
+.off .click-img {
+  display: none; }
+.off .shown-img {
+  display: inline-block !important; }
+
+.user-list .present-li {
+  position: relative;
+  height: 18px; }
+  .user-list .present-li .username {
+    width: unset;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    left: 18px;
+    right: 47px;
+    position: absolute; }
+    .user-list .present-li .username:hover {
+      color: #000000; }
+  .user-list .present-li .user-situation.p-right {
+    position: absolute;
+    float: unset;
+    right: 5px; }
+
+.texting {
+  position: absolute;
+  width: 100%;
+  bottom: 0; }
+
+.chatting-position {
+  position: absolute; }
+
+.toast .btn {
+  width: 80px;
+  height: 23px; }
+
+.overlay-disable {
+  top: 0;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  opacity: 0.7;
+  /* background-color: #000000; */
+  background-color: #ffffff; }
+
+.dialog-cover {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(128, 128, 128, 0.5);
+  font-family: "Open Sans",sans-serif; }
+  .dialog-cover .online-box-center {
+    margin: 20px auto;
+    border: 2px solid darkgrey;
+    padding: 10px;
+    position: relative;
+    height: 75%;
+    width: 200px;
+    background-color: white; }
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+  border-bottom-right-radius: 1px; }
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+  border-bottom-left-radius: 1px; }
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+  border-top-right-radius: 1px; }
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+  border-top-left-radius: 1px; }
+
+fieldset {
+  padding: 10px 25px;
+  border: 1px solid #bbbbbb; }
+  fieldset div {
+    padding: 5px 0; }
+
+input {
+  padding: 5px 5px; }
+
+.ui-widget-content {
+  border: 1px solid #bbbbbb; }
+
+.ui-widget {
+  font-family: "Open Sans",sans-serif;
+  font-size: 15px; }
+  .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: "Open Sans",sans-serif;
+    font-size: 12px; }
+  .ui-widget input {
+    min-width: 200px; }
+  .ui-widget .ui-widget {
+    font-size: 12px; }
+
+/*# sourceMappingURL=main_fix.css.map */

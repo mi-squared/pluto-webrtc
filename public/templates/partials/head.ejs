@@ -1,0 +1,56 @@
+<!-- templates/partials/head.ejs -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title><%= config.title %></title>
+
+<% if (config.chromeExtension) { %>
+<!-- Chrome Screen Sharing Extension inline install -->
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/aelbdcldkphomhofiomjphfjpdpncfkc">
+<!-- Chrome Screen Sharing Extension inline install -->
+<% } %>
+
+
+<!-- jQuery and plugins -->
+<script type="text/javascript" src="./vendor/js/jquery.js"></script>
+
+<script type="text/javascript" src="./vendor/js/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="vendor/css/jquery-ui.css">
+<!-- jQuery and plugins -->
+
+
+<!-- Load Zero Clipboard -->
+<!--<script type="text/javascript" src="js/vendor/ZeroClipboard.js"></script>-->
+<!-- Load Zero Clipboard -->
+
+
+<!-- Load spin.js -->
+<script type="text/javascript" src="./vendor/js/spin.js"></script>
+<!-- Load spin.js -->
+
+
+<!-- Toastr -->
+<script type="text/javascript" src="./vendor/js/toastr.js"></script>
+<link rel="stylesheet" type="text/css" href="vendor/css/toastr.css">
+<!-- Toastr -->
+
+
+<!-- Start script. Sets all the config variables and load other scripts -->
+<!--<script type="text/javascript" src="./common/app_config.js"></script>-->
+<script type="text/javascript"
+        id="wrtc-loader"
+        class="wrtc-loader"
+        data-main="./js/apps/wrtcapp/index.js"
+        src="./js/mylib/loader.js"></script>
+<!-- Start script. Sets all the config variables and load other scripts -->
+
+
+<!-- Integration example script -->
+<script type="text/javascript" src="./js/example.js"></script>
+<!-- Integration example script -->
+
+
+<link rel="stylesheet" type="text/css" href="./skins/default/css/wrtcContainer.css">
+<link rel="stylesheet" type="text/css" href="./skins/default/css/wrtcStats.css">
+<!-- templates/partials/head.ejs -->
+
+<% include ./view-template.ejs %>

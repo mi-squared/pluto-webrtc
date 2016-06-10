@@ -1,0 +1,30 @@
+{
+  "name": "WebRTC Video Conference",
+  "version": "0.0.1",
+  "authors": [
+    "Alexander <alykoshin@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~3.0.3",
+    "jquery": "~2.1.4",
+    "jquery-mousewheel": "3.1.11",
+    "jquery-ui": "~1.11.4",
+    "lodash": "~3.10.1",
+    "malihu-custom-scrollbar-plugin": "3.0.2",
+    "requirejs": "~2.1.20",
+    "spin.js": "~2.3.2",
+    "toastr": "~2.1.2",
+    "zeroclipboard": "~2.2.0"
+  },
+  "resolutions": {
+    "malihu-custom-scrollbar-plugin": "3.0.2"
+  }
+}

@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+body {
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  background:#89a4b8;
+}
+.hd {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:58px;
+  text-align:center;
+  color:#ffffff;
+}
+.wrapper
+{
+  width:100%;
+  position:absolute;
+}
+.header-outer
+{
+  width:100%;
+  height:116px;
+  background:#ffffff;
+}
+.header
+{
+  width:1000px;
+  height:116px;
+  margin:0 auto;
+}
+.logo
+{ width:200px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-top:28px;
+}
+.center {
+  width: 100%;
+  height:100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.title{
+  width:600px;
+  margin-right: auto;
+  margin-left:auto;
+  padding-top:90px;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#ffffff;
+  font-size:58px;
+  text-align:center;
+}
+.elegant-aero {
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:60px;
+  max-width: 400px;
+}
+.elegant-aero input {
+  color: #888;
+  height:41px;
+  width: 385px;
+  padding: 0px 0px 0px 0px;
+  border: 1px solid #809bae;
+  background: #FBFBFB;
+  outline: 0;
+  -webkit-box-shadow:inset 0px 1px 6px #ECF3F5;
+  font: 200 16px/25px Arial, Helvetica, sans-serif;
+  text-align:center;
+  height: 40px;
+  line-height:15px;
+  margin: 2px 6px 16px 0px;
+}
+.elegant-aero .button{
+  padding: 10px 30px 10px 30px;
+  font-size:20px;
+  text-transform:uppercase;
+  height:70px;
+  background: #8dc63f;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 0px #4C6E91;
+  cursor: pointer;
+}
+.elegant-aero .button:hover{
+  background: #a8d768;
+}
+.welp{
+  font-family:Arial, Helvetica, sans-serif;
+  color:#8dc63f;
+  font-size:35px;
+  font-weight:bold;
+  margin-top:-8px;
+}
+.telp{
+  font-family:Arial, Helvetica, sans-serif;
+  color: #000000;
+  font-size: 20px;
+  margin-top: -24px;
+  margin-left: 44px;
+}

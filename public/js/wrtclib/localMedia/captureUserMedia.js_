@@ -1,0 +1,132 @@
+/**
+ * Created by alykoshin on 9/25/14.
+ */
+
+'use strict';
+
+if ( typeof module !== 'undefined' && typeof require !== 'undefined') {
+  var debug   = require('./../../mylib/utils.js').debug;
+  var DetectRTC   = require('./detectRTCs.js');
+}
+
+function captureUserMedia(callback, extensionAvailable) {
+  console.log('captureUserMedia chromeMediaSource', DetectRTC.screen.chromeMediaSource);
+
+  var screen_constraints = {
+    mandatory: {
+      chromeMediaSource: DetectRTC.screen.chromeMediaSource,
+      maxWidth:  screen.width  > 1920 ? screen.width  : 1920,
+      maxHeight: screen.height > 1080 ? screen.height : 1080
+      // minAspectRatio: 1.77
+    },
+    optional: [{ // non-official Google-only optional constraints
+      googTemporalLayeredScreencast: true
+    }, {
+      googLeakyBucket: true
+    }]
+  };
+
+  // try to check if extension is installed.
+  if(isChrome && isWebRTCExperimentsDomain && typeof extensionAvailable == 'undefined' && DetectRTC.screen.chromeMediaSource != 'desktop') {
+    DetectRTC.screen.isChromeExtensionAvailable(function(available) {
+      captureUserMedia(callback, available);
+    });
+    return;
+  }
+
+  if(isChrome && isWebRTCExperimentsDomain && DetectRTC.screen.chromeMediaSource == 'desktop' && !DetectRTC.screen.sourceId) {
+    DetectRTC.screen.getSourceId(function(error) {
+      if(error && error == 'PermissionDeniedError') {
+        alert('PermissionDeniedError: User denied to share content of his screen.');
+      }
+
+      captureUserMedia(callback);
+    });
+    return;
+  }
+
+  // for non-www.webrtc-experiment.com domains
+  if(isChrome && !isWebRTCExperimentsDomain && !DetectRTC.screen.sourceId) {
+    window.addEventListener('message', function (event) {
+      if (event.data && event.data.chromeMediaSourceId) {
+        var sourceId = event.data.chromeMediaSourceId;
+
+        DetectRTC.screen.sourceId = sourceId;
+        DetectRTC.screen.chromeMediaSource = 'desktop';
+
+        if (sourceId == 'PermissionDeniedError') {
+          return alert('User denied to share content of his screen.');
+        }
+
+        captureUserMedia(callback, true);
+      }
+
+      if (event.data && event.data.chromeExtensionStatus) {
+        warn('Screen capturing extension status is:', event.data.chromeExtensionStatus);
+        DetectRTC.screen.chromeMediaSource = 'screen';
+        captureUserMedia(callback, true);
+      }
+    });
+    screenFrame.postMessage();
+    return;
+  }
+
+  if(isChrome && DetectRTC.screen.chromeMediaSource == 'desktop') {
+    screen_constraints.mandatory.chromeMediaSourceId = DetectRTC.screen.sourceId;
+  }
+
+  var constraints = {
+    audio: false,
+    video: screen_constraints
+  };
+
+  if(!!navigator.mozGetUserMedia) {
+    console.warn(Firefox_Screen_Capturing_Warning);
+    constraints.video = {
+      mozMediaSource: 'window',
+      mediaSource: 'window',
+      maxWidth:  1920,
+      maxHeight: 1080,
+      minAspectRatio: 1.77
+    };
+  }
+
+  console.log( JSON.stringify( constraints , null, '\t') );
+
+  var video = document.createElement('video');
+  video.setAttribute('autoplay', true);
+  video.setAttribute('controls', true);
+  videosContainer.insertBefore(video, videosContainer.firstChild);
+
+  getUserMedia({
+    video: video,
+    constraints: constraints,
+    onsuccess: function(stream) {
+//      config.attachStream = stream;
+      callback && callback();
+
+//      video.setAttribute('muted', true);
+ //     rotateVideo(video);
+    },
+    onerror: function() {
+      if (isChrome && location.protocol === 'http:') {
+        alert('Please test this WebRTC experiment on HTTPS.');
+      } else if(isChrome) {
+        alert('Screen capturing is either denied or not supported. ' +
+        'Please install chrome extension for screen capturing ' +
+        'or run chrome with command-line flag: --enable-usermedia-screen-capturing');
+      }
+      else if(!!navigator.mozGetUserMedia) {
+        alert(Firefox_Screen_Capturing_Warning);
+      }
+    }
+  });
+}
+
+if (typeof module !== 'undefined') {
+  module.exports.captureUserMedia  = captureUserMedia;
+}
+
+if (typeof window !== 'undefined') {
+  window.captureUserMedia  = captureUserMedia;
+}

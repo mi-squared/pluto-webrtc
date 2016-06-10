@@ -1,0 +1,34 @@
+<!-- TEMPLATE chat-msg-templates BEGIN -->
+<script id="chat-msg-local-template" type="text/template" class="template">
+  <span class="wrtcLine wrtcLocal">
+      <? if (user && user.name) { ?>
+    <span class="wrtcName"><?= user.name ?></span>
+        <span class="wrtcDelimiter">:</span>
+    <? } ?>
+    <span class="wrtcText"><?= text ?></span>
+      </span>
+  <br/>
+</script>
+
+<script id="chat-msg-remote-template" type="text/template" class="template">
+  <span class="wrtcLine wrtcRemote">
+      <? if (user && user.name) { ?>
+    <span class="wrtcName"><?= user.name ?></span>
+        <span class="wrtcDelimiter">:</span>
+    <? } ?>
+    <span class="wrtcText"><?= text /></span>
+      </span>
+  <br/>
+</script>
+
+<script id="chat-msg-system-template" type="text/template" class="template">
+  <span class="wrtcLine wrtcSystem">
+      <? if (user && user.name) { ?>
+    <span class="wrtcName"><?= user.name ?></span>
+        <span class="wrtcDelimiter">:</span>
+    <? } ?>
+    <span class="wrtcText"><?= text ?></span>
+      </span>
+  <br/>
+</script>
+<!-- TEMPLATE chat-msg-templates END -->

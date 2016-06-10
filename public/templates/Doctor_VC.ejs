@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%
+  var config = {};
+  config.title = 'Video Conference';
+  config.chromeExtension = false;
+  %>
+
+  <% include ../templates/partials/head.ejs %>
+  <% include ../templates/2WayVC/_head.ejs %>
+
+  <%# Fix to hide user list for doctors %>
+  <style>
+    .online-box {
+      display: none;
+    }
+    .callign-section {
+      left: 0;
+      width: 100%;
+    }
+  </style>
+  <%# Fix to hide user list for doctors %>
+
+</head>
+<body>
+<% include ../templates/partials/hidden_inputs.ejs %>
+
+<div id="wrtcMainWrapper">
+  <% include ../templates/2WayVC/_page1.ejs %>
+  <% include ../templates/2WayVC/_page2.ejs %>
+</div>
+
+<% include ../templates/partials/dialog-invite-email.ejs %>
+<% include ../templates/2WayVC/dialog-invite-list.ejs %>
+<% include ../templates/partials/stats.ejs %>
+
+<script>
+  $(document).ready(function() {
+
+    $("#roles").val("doctor");
+    $("#wrtcMainWrapper").addClass("doctor");
+
+  });
+</script>
+
+</body>
+
+<% include ../templates/partials/spinner.ejs %>
+
+</html>

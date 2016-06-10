@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <%
+  var config = {};
+  config.title = 'Multiuser Video Chat';
+  config.chromeExtension = true;
+  %>
+
+  <% include ../templates/partials/head.ejs %>
+
+  <!-- These CSS links are changing automatically - do not modify manually -->
+  <link id="style" rel="stylesheet" type="text/css" href="./skins/VideoConference/css/start_style.css">
+  <link id="style" rel="stylesheet" type="text/css" href="./skins/VideoConference/css/style.css">
+  <!-- These CSS links are changing automatically - do not modify manually -->
+
+  <!-- This CSS-es modifies customer-provided styles -->
+  <link rel="stylesheet" type="text/css" href="./skins/VideoConference/css/style_fix.css">
+  <link rel="stylesheet" type="text/css" href="./skins/VideoConference/css/start_style_fix.css">
+  <!-- This CSS-es modifies customer-provided styles -->
+
+  <% include ../templates/partials/userlist-user-templates.ejs %>
+  <% include ../templates/partials/chat-msg-templates.ejs %>
+
+  <script type="text/javascript">
+    function MM_swapImgRestore() { //v3.0
+      var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+    }
+    function MM_preloadImages() { //v3.0
+      var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+        var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+          if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+    }
+
+    function MM_findObj(n, d) { //v4.01
+      var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+        d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+      if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+      for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+      if(!x && d.getElementById) x=d.getElementById(n); return x;
+    }
+
+    function MM_swapImage() { //v3.0
+      var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+        if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+    }
+  </script>
+</head>
+<body onload="MM_preloadImages(
+  'skins/VideoConference/images/mic-h.png',
+  'skins/VideoConference/images/video-h.png',
+  'skins/VideoConference/images/sound-h.png',
+  'skins/VideoConference/images/phoneicon1.png',
+  'skins/VideoConference/images/tv-h.png')">
+
+
+  <!-- VideoConference first page -->
+  <div id="page1" class="wrapper">
+    <div class="header-outer">
+      <div class="logo">
+        <!-- img src="skins/VideoConference/images/wellstats_logo.png" width="199" height="63" /-->
+        <p class="welp">WELLSTATS</p>
+        <p class="telp">Tele Medicine</p>
+
+      </div>
+    </div>
+    <div class="center">
+      <div class="title">
+        Free, simple video chat
+        <div class="small">
+          Welcome to your link to video powered by Linktovid
+        </div>
+      </div>
+      <div class="elegant-aero">
+        <input type="text"   id="wrtcNameInput"       placeholder="Your Full Name"                style="display:none">
+        <input type="text"   id="wrtcYourEmailInput"  placeholder="Your Email Address (Optional)" style="display:none">
+        <input type="text"   id="wrtcOtherEmailInput" placeholder="Other Party Email Address"     style="display:none">
+        <input type="button" id="btnStartEmailCall"   class="wrtcButton button" value="Start Video Conference" style="display:none">
+      </div>
+    </div>
+  </div>
+  <!-- VideoConference first page -->
+
+
+  <!-- page2 -->
+  <div id="page2" class="wrapper" style="display:none;">
+
+    <div class="online_chat_area">
+      <div class="left_area">
+        <div class="left_area_img1">
+          <div class="ctext">
+            <p id="welcome_text" class="pt">
+              You are successfully connected to the conference bridge <br/>
+              You can invite other people to join the conference by sharing conference link
+            </p>
+          </div>
+
+        </div>
+
+        <% include ../templates/partials/remote_video_holder.ejs %>
+
+      </div>
+
+      <div class="right_area">
+        <h1 class="my_video_h1">My Video</h1>
+        <div class="chat_window">
+
+          <% include ../templates/partials/local_video_holder.ejs %>
+
+          <div class="chat_option">
+            <ul class="screen">
+              <!--li><img id="my-img" class="wrtcStartScreenBtn" src="skins/VideoConference/images/screen_share.png" alt="" /></li-->
+              <li>
+                <a href="#" class="wrtcStartScreenBtn"
+                   onmouseout="MM_swapImgRestore()"
+                   onmouseover="MM_swapImage('Image11','','skins/VideoConference/images/tv-h.png',1)">
+                  <img src="skins/VideoConference/images/screen_share.png" width="16" height="15" id="Image11" />
+                </a>
+              </li>
+              <li>SHARE SCREEN</li>
+            </ul>
+            <ul class="chat_option_icons">
+              <li id="my-img1" class="wrtcLocalMicBtn">
+                <a href="#"
+                   onmouseout="MM_swapImgRestore()"
+                   onmouseover="MM_swapImage('Image7','','skins/VideoConference/images/mic-h.png',1)">
+                  <img src="skins/VideoConference/images/voice_icon.png" width="10" height="16" id="Image7" />
+                </a>
+              </li>
+              <li id="my-img2" class="wrtcLocalVideoBtn" style="margin-top: 4px;">
+                <a href="#"
+                   onmouseout="MM_swapImgRestore()"
+                   onmouseover="MM_swapImage('Image8','','skins/VideoConference/images/video-h.png',1)">
+                  <img src="skins/VideoConference/images/video_chat.png" width="15" height="9" id="Image8" />
+                </a>
+              </li>
+              <li id="my-img3" class="wrtcLocalSpeakerBtn" style="margin-top: 4px;">
+                <a href="#"
+                   onmouseout="MM_swapImgRestore()"
+                   onmouseover="MM_swapImage('Image9','','skins/VideoConference/images/sound-h.png',1)">
+                  <img src="skins/VideoConference/images/volume.png" width="14" height="11" id="Image9" />
+                </a>
+              </li>
+              <li id="my-img6" class="wrtcHangupAllAction" style="margin-top: 4px; height: 12px; width: 25px;">
+                <a href="#"
+                   onmouseout="MM_swapImgRestore()"
+                   onmouseover="MM_swapImage('Image10','','skins/VideoConference/images/phoneicon1.png',1)">
+                  <img src="skins/VideoConference/images/phoneicon.png" width="25" height="12" id="Image10" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="link_area">
+          <h1 class="link_h1">Link to join conference</h1>
+          <input type="text" id="link" name="link" placeholder="https://telmed.wellstats.com:8080/Physician" class="link_area_input"/>
+          <input type="submit" id='copy_link' class="submit_bt" data-clipboard-target="link" value=""/>
+        </div>
+
+        <h1 class="chat_h1">Chat</h1>
+        <div class="chat_msgs">
+          <div class="wrtcChatScroll chat_msg_text scroll">
+            <p  id="wrtcChatLog">
+              <!-- Chat messages are here -->
+            </p>
+          </div>
+          <div id="wrtcChatInputGroup">
+            <textarea cols="20" rows="7" id="wrtcChatInput" autofocus placeholder="Type your message here"></textarea>
+            <input id="wrtcChatButton" type="submit" class="send_bt" value=""/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% include ../templates/partials/hidden_inputs.ejs %>
+
+    <div class="wrtcChatArea">
+
+      <div id="wrtcStartInfo" style="visibility:hidden">
+        <div id="wrtcStartInfoText">
+        </div>
+
+        <% include ../templates/partials/source_2_select.ejs %>
+
+        <br>
+
+        <% include ../templates/partials/basic_buttons.ejs %>
+
+      </div>
+
+      <!-- Chat area -->
+      <!--div id="wrtcChatLog">
+      </div-->
+
+      <!--div id="wrtcChatInputGroup">
+        <input type="text"   id="wrtcChatInput" autofocus>
+        <input type="submit" id="wrtcChatButton" value="Send">
+      </div-->
+      <!-- Chat area -->
+
+    </div>
+
+    <% include ../templates/partials/stats.ejs %>
+
+  </div>
+  <!-- page2 -->
+
+</body>
+
+<% include ../templates/partials/spinner.ejs %>
+
+</html>

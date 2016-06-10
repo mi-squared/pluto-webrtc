@@ -1,0 +1,342 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.unstyled li{
+	list-style: none;
+}
+.inline li{
+	display: inline-block;
+}
+.clear{
+	clear: both;
+}
+.p-left{
+	float: left;
+}
+.p-right{
+	float: right;
+}
+a{
+	text-decoration: none;
+}
+a:hover, a:focus{
+	text-decoration: none;
+}
+a img,a:hover img{
+	border: 0px;
+}
+.container{
+	background: #eee none repeat scroll 0 0;
+    font-family: "Open Sans",sans-serif;
+    height: 100%;
+    margin: 0 auto;
+    min-width: 1024px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}	
+.h-550{
+	height: auto;
+    overflow: hidden;
+    padding: 0;
+}
+.online-box{
+	background: #ffffff none repeat scroll 0 0;
+    float: left;
+    height: 91%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 21%;
+    z-index: 100;
+}
+.online-box-title{
+	color: rgba(64, 148, 211, 1);
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-bottom: 10px;
+	font-weight: 600;
+	line-height: 14px;
+}
+.online-subtitle{
+	color: #5b5b5b;
+	font-size: 13px;
+}
+.active-user{
+	font-weight: 700;
+}
+.username{
+	color: #5b5b5b;
+    display: inline-block;
+    font-size: 13px;
+    height: 18px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    top: 4px;
+    width: 105px;
+}
+.username:hover{
+	color: #5b5b5b;
+}
+.user-situation li{
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.user-situation li:last-child{
+	padding-right: 0px;
+}
+.user-situation li:first-child{
+	padding-left: 0px;
+}
+.user-situation{
+    position: relative;
+    top: 3px;
+}
+.present-li{
+	background: rgba(0, 0, 0, 0) url("../images/online-img.png") no-repeat scroll 0 8px;
+    padding-left: 16px;
+}
+.user-list{
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+.attendees-li{
+	background: rgba(0, 0, 0, 0) url("../images/telephone.png") no-repeat scroll 0 5px;
+    padding-left: 20px;
+}
+.callign-section{
+	background: rgba(0, 0, 0, 1) url("../images/called.jpeg") no-repeat scroll center 0 / auto 100%;
+    float: left;
+    height: 91%;
+    left: 20%;
+    margin: 0 0 0 10px;
+    position: absolute;
+    width: 79%;
+    -webkit-box-shadow: 0 -67px 150px -37px rgba(0, 0, 0, 1) inset;
+	-moz-box-shadow: 0 -67px 150px -37px rgba(0, 0, 0, 1) inset;
+	box-shadow: 0 -67px 150px -37px rgba(0, 0, 0, 1) inset;
+}
+.width-505{
+	width: 56%;
+	margin-right: 10px;
+}
+.calling-username{
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	bottom: 10px;
+	left:10px;
+	font-weight: 600;
+}
+.caller{
+	background: rgba(0, 0, 0, 0) url("../images/caller.jpeg") repeat scroll 0 0 / 100% auto;
+	height: 200px;
+	width: 200px;
+	border: 1px solid #ffffff;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	-webkit-box-shadow:0 -60px 86px -37px rgba(0, 0, 0, 1) inset;
+	-moz-box-shadow:0 -60px 86px -37px rgba(0, 0, 0, 1) inset;
+	box-shadow:0 -60px 86px -37px rgba(0, 0, 0, 1) inset;
+}
+.rela-200{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.caller-username{
+	font-size: 14px;
+	font-weight: 600;
+	position: absolute;
+	left: 6px;
+	bottom: 6px;
+	color: #ffffff;
+}
+.chatting-box{
+	background: #ffffff none repeat scroll 0 0;
+    display: none;
+    float: left;
+    height: 91%;
+    position: absolute;
+    right: 0;
+    width: 23%;
+}
+.conversation-date{
+	text-align: center;
+	color: rgba(64, 148, 211, 1);
+	font-size: 13px;
+}
+.chatting-position{
+	bottom: 0;
+    height: 88%;
+    position: relative;
+    top: 5px;
+    width: 100%;
+}
+.conversation-date span{
+	background: #fff none repeat scroll 0 0;
+    padding: 0 10px;
+    position: relative;
+    top: 9px;
+    z-index: 100;
+}
+.border-b{
+	border-top: 1px solid rgba(64, 148, 211, 1);
+	position: relative;
+	z-index: 1;
+	margin-bottom: 20px;
+}
+.next-body{
+	background: #a7ffff none repeat scroll 0 0;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 13px;
+    margin-left: 8px;
+    padding: 5px 10px;
+    position: relative;
+    width: 80%;
+    margin-bottom: 5px;
+}
+.self-body{
+	background: #ecf8f8 none repeat scroll 0 0;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 13px;
+    margin-right: 8px;
+    padding: 5px 10px;
+    position: relative;
+    width: 80%;
+    margin-bottom: 5px;
+}
+.next-trg{
+	border-color: transparent #a7ffff transparent transparent;
+    border-style: solid;
+    border-width: 5px 8px 5px 0;
+    height: 0;
+    left: -7px;
+    position: absolute;
+    top: 6px;
+    width: 0;
+}
+.self-trg{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 4px 0 4px 10px;
+	border-color: transparent transparent transparent #ecf8f8;
+	position: absolute;
+	right: -7px;
+	top: 6px;
+}
+
+.texting{
+	position: relative;
+	margin: 10px 0;
+}
+.writtting{
+	background: #ecf8f8 none repeat scroll 0 0;
+    border-radius: 5px;
+    float: left;
+    height: 29px;
+    margin-left: 10px;
+    padding: 2px 5px 7px;
+    width: 65%;
+}
+.writtting textarea{
+	background: transparent none repeat scroll 0 0;
+    border: 0 none;
+    box-shadow: none;
+    height: 100%;
+    resize: none;
+    width: 100%;
+}
+.send{
+	background: #e0e0e0 none repeat scroll 0 0;
+    border-radius: 4px;
+    bottom: 0;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    padding: 3px 0;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    width: 50px;
+}
+.send:hover, .send:focus{
+	background: #008FFF;
+}
+.texting{
+	height: 32px;
+}
+.control-li > a > img{
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+}
+.chatting-control{
+	bottom: -2px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.control-li span{
+	font-size: 12px;
+    margin-left: 2px;
+    position: relative;
+    top: -10px;
+}
+.control-li{
+	padding: 5px;
+	border-right: 1px solid #dddddd; 
+}
+.control-li:first-child{
+	border-left: 1px solid #dddddd;
+}
+.shown-img{
+	display: none;
+}
+.control-li .click-img{
+	display: inline-block;
+}
+.show-li .click-img{
+	display: none;
+}
+
+.show-li .shown-img{
+	display: inline-block !important;
+}
+.h-500{
+	height: 87%;
+    margin-right: -13px;
+    padding-right: 13px;
+}
+.padd-20{
+	padding: 20px;
+	height: 100%;
+}
+.time-stam{
+	color: #5b5b5b;
+    font-size: 10px;
+    font-weight: 400;
+    margin: 0 10px;
+    padding: 0 10px;
+    width: 80%;
+    margin-bottom: 8px;
+}
+.text-right{
+	text-align: right;
+}
+.self-body .time-stam{
+	text-align: right;
+}
+.time-left{
+	text-align: left;
+	float: right;
+}
+.h-495{
+	height: 495px;
+}

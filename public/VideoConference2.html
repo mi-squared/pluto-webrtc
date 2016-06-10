@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  
+
+  <!-- templates/partials/head.ejs -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Video Conference</title>
+
+
+
+
+<!-- jQuery and plugins -->
+<script type="text/javascript" src="./vendor/js/jquery.js"></script>
+
+<script type="text/javascript" src="./vendor/js/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="vendor/css/jquery-ui.css">
+<!-- jQuery and plugins -->
+
+
+<!-- Load Zero Clipboard -->
+<!--<script type="text/javascript" src="js/vendor/ZeroClipboard.js"></script>-->
+<!-- Load Zero Clipboard -->
+
+
+<!-- Load spin.js -->
+<script type="text/javascript" src="./vendor/js/spin.js"></script>
+<!-- Load spin.js -->
+
+
+<!-- Toastr -->
+<script type="text/javascript" src="./vendor/js/toastr.js"></script>
+<link rel="stylesheet" type="text/css" href="vendor/css/toastr.css">
+<!-- Toastr -->
+
+
+<!-- Start script. Sets all the config variables and load other scripts -->
+<!--<script type="text/javascript" src="./common/app_config.js"></script>-->
+<script type="text/javascript"
+        id="wrtc-loader"
+        class="wrtc-loader"
+        data-main="./js/apps/wrtcapp/index.js"
+        src="./js/mylib/loader.js"></script>
+<!-- Start script. Sets all the config variables and load other scripts -->
+
+
+<!-- Integration example script -->
+<script type="text/javascript" src="./js/example.js"></script>
+<!-- Integration example script -->
+
+
+<link rel="stylesheet" type="text/css" href="./skins/default/css/wrtcContainer.css">
+<link rel="stylesheet" type="text/css" href="./skins/default/css/wrtcStats.css">
+<!-- templates/partials/head.ejs -->
+
+<!-- templates/partials/view-template.ejs -->
+<!-- Handlebars Template for dynamic addition of remote videos -->
+<!-- Do not modify IDs of elements                             -->
+<script id="wrtcViewTemplate" type="text/x-handlebars-template">
+
+  <div     id="wrtc{{classLocalOrRemote}}Container_{{vidId}}"
+           class="wrtcContainer wrtc{{classLocalOrRemote}} wrtc{{classVideoOrScreen}}"
+           data-conn-id="{{connId}}"
+           draggable="true"
+    >
+    <!-- wrtcVideoFalse wrtcVideoTrue - has Video tracks -->
+
+    <video id="wrtc{{classLocalOrRemote}}Element_{{vidId}}"
+           class="wrtc{{classLocalOrRemote}}{{classVideoOrScreen}} wrtcVideoElement"
+           data-conn-id="{{connId}}"
+           autoplay="{{autoplay}}"
+           {{muted}}
+      >
+    </video>
+
+    <div   id="wrtc{{classLocalOrRemote}}Overlay_{{vidId}}"
+           class="wrtcOverlay"
+      >
+
+      <div class="wrtcPanel wrtcTop">
+        <div class="wrtcLeft">
+          <div id="wrtc{{classLocalOrRemote}}Text_{{vidId}}_Left"  class="wrtcText">{{infoText}}</div>
+        </div>
+        <div class="wrtcRight">
+          <div id="wrtc{{classLocalOrRemote}}Text_{{vidId}}_Right" class="wrtcText">{{infoText}}</div>
+        </div>
+      </div>
+
+      <div class="wrtcPanel wrtcBottom">
+        <div class="wrtcLeft">
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcSpeakerBtn    wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcVideoBtn      wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcMicBtn        wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcHangupOneBtn           "></div>
+        </div>
+        <div class="wrtcRight">
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcInfoBtn             "></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcFullScreenBtn wrtcOn"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</script>
+<!-- templates/partials/view-template.ejs -->
+
+
+
+  <!-- These CSS links are changing automatically - do not modify manually -->
+  <link id="style" rel="stylesheet" type="text/css" href="./skins/VideoConference/css/start_style.css">
+  <link id="style" rel="stylesheet" type="text/css" href="./skins/VideoConference/css/style.css">
+  <!-- These CSS links are changing automatically - do not modify manually -->
+
+  <!-- This CSS-es modifies customer-provided styles -->
+  <link rel="stylesheet" type="text/css" href="./skins/VideoConference/css/style_fix.css">
+  <link rel="stylesheet" type="text/css" href="./skins/VideoConference/css/start_style_fix.css">
+  <!-- This CSS-es modifies customer-provided styles -->
+
+  <!-- TEMPLATE userlist-user-templates BEGIN -->
+<script id="userlist-user-default-template" type="text/template" class="template">
+
+  <li class="present-li" data-user-id="<?= id ?>">
+    <!--<a href="#" class="username active-user start-call-action"><?= getVisibleName() ?></a>-->
+    <div class="username active-user start-call-action"><?= getVisibleName() ?></div>
+    <ul class="inline unstyled user-situation p-right">
+      <li><a class="start-chat-action" href="#"><img src="skins/2WayVC/images/sms.png"></a></li>
+      <li><a class="start-call-action"  href="#"><img src="skins/2WayVC/images/call.png"></a></li>
+    </ul>
+    <div class="clear"></div>
+  </li>
+
+</script>
+<!-- TEMPLATE userlist-user-templates END -->
+
+  <!-- TEMPLATE chat-msg-templates BEGIN -->
+<script id="chat-msg-local-template" type="text/template" class="template">
+  <span class="wrtcLine wrtcLocal">
+      <? if (user && user.name) { ?>
+    <span class="wrtcName"><?= user.name ?></span>
+        <span class="wrtcDelimiter">:</span>
+    <? } ?>
+    <span class="wrtcText"><?= text ?></span>
+      </span>
+  <br/>
+</script>
+
+<script id="chat-msg-remote-template" type="text/template" class="template">
+  <span class="wrtcLine wrtcRemote">
+      <? if (user && user.name) { ?>
+    <span class="wrtcName"><?= user.name ?></span>
+        <span class="wrtcDelimiter">:</span>
+    <? } ?>
+    <span class="wrtcText"><?= text /></span>
+      </span>
+  <br/>
+</script>
+
+<script id="chat-msg-system-template" type="text/template" class="template">
+  <span class="wrtcLine wrtcSystem">
+      <? if (user && user.name) { ?>
+    <span class="wrtcName"><?= user.name ?></span>
+        <span class="wrtcDelimiter">:</span>
+    <? } ?>
+    <span class="wrtcText"><?= text ?></span>
+      </span>
+  <br/>
+</script>
+<!-- TEMPLATE chat-msg-templates END -->
+
+
+  <script type="text/javascript">
+    function MM_swapImgRestore() { //v3.0
+      var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+    }
+    function MM_preloadImages() { //v3.0
+      var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+        var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+          if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+    }
+
+    function MM_findObj(n, d) { //v4.01
+      var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+        d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+      if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+      for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+      if(!x && d.getElementById) x=d.getElementById(n); return x;
+    }
+
+    function MM_swapImage() { //v3.0
+      var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+        if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+    }
+  </script>
+
+</head>
+<body onload="MM_preloadImages(
+  'skins/VideoConference/images/mic-h.png',
+  'skins/VideoConference/images/video-h.png',
+  'skins/VideoConference/images/sound-h.png',
+  'skins/VideoConference/images/phoneicon1.png',
+  'skins/VideoConference/images/tv-h.png')">
+
+
+  <div id="wrtcMainWrapper">
+
+    <!-- page1 -->
+    <div id="page1" class="wrapper">
+      <!--<div class="header-outer" style="display:none;">-->
+        <!--<div class="logo">-->
+          <!-- img src="skins/VideoConference/images/wellstats_logo.png" width="199" height="63" /-->
+          <!--<p class="welp">WELLSTATS</p>-->
+          <!--<p class="telp">Tele Medicine</p>-->
+
+        <!--</div>-->
+      <!--</div>-->
+      <div class="center">
+
+        <div class="title">
+          Video Conference
+        </div>
+        <div class="title" style="display:none;">
+          Free, simple video chat
+          <div class="small">
+            Welcome to your link to video powered by Linktovid
+          </div>
+        </div>
+
+        <div class="elegant-aero">
+          <input type="text"   id="wrtcNameInput"       placeholder="Your Full Name"                style="display:none">
+          <input type="text"   id="wrtcYourEmailInput"  placeholder="Your Email Address (Optional)" style="display:none">
+          <input type="text"   id="wrtcOtherEmailInput" placeholder="Other Party Email Address"     style="display:none">
+          <input type="button" id="btnStartEmailCall"   class="wrtcButton button" value="Start Video Conference" style="display:none">
+        </div>
+
+      </div>
+    </div>
+    <!-- page1 -->
+
+    <!-- page2 -->
+    <div id="page2" class="wrapper" style="display:none;">
+
+      <div class="online_chat_area">
+
+        <div class="left_area" style="height:unset;top:0; bottom:240px;">
+
+          <div class="left_area_img1" style="height:100%;border:none;">
+            <div class="ctext">
+              <p id="welcome_text" class="pt">
+                You are successfully connected to the conference bridge <br/>
+                You can invite other people to join the conference by sharing conference link
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Remote Videos Placeholder  -->
+<div id="wrtcRemoteVideoHolder" class="wrtcRemoteVideoHolder">
+  <!-- Here will be placed the remote videos based on handlebars template each inside additional <div> -->
+</div>
+<!-- Remote Videos Placeholder  -->
+
+
+        </div>
+
+        <div class="right_area"  style="top:unset; bottom:12px; height:240px; left: 65px;">
+          <h1 class="my_video_h1">My Video</h1>
+
+          <div class="chat_window" style="height:unset;">
+
+            <!-- Local Camera & Screen Previews -->
+<div id="wrtcLocalVideoHolder" class="wrtcLocalVideoHolder">
+</div>
+<!-- Local Camera & Screen Previews -->
+
+
+            <div class="chat_option">
+
+              <ul class="screen" style="display:none;">
+                <!--li><img id="my-img" class="wrtcStartScreenBtn" src="skins/VideoConference/images/screen_share.png" alt="" /></li-->
+                <li>
+                  <a href="#" class="wrtcStartScreenBtn"
+                     onmouseout="MM_swapImgRestore()"
+                     onmouseover="MM_swapImage('Image11','','skins/VideoConference/images/tv-h.png',1)">
+                    <img src="skins/VideoConference/images/screen_share.png" width="16" height="15" id="Image11" />
+                  </a>
+                </li>
+                <li>SHARE SCREEN</li>
+              </ul>
+
+              <ul class="chat_option_icons">
+                <li id="my-img1" class="wrtcLocalMicBtn">
+                  <a href="#"
+                     onmouseout="MM_swapImgRestore()"
+                     onmouseover="MM_swapImage('Image7','','skins/VideoConference/images/mic-h.png',1)">
+                    <img src="skins/VideoConference/images/voice_icon.png" width="10" height="16" id="Image7" />
+                  </a>
+                </li>
+                <li id="my-img2" class="wrtcLocalVideoBtn" style="margin-top: 4px;">
+                  <a href="#"
+                     onmouseout="MM_swapImgRestore()"
+                     onmouseover="MM_swapImage('Image8','','skins/VideoConference/images/video-h.png',1)">
+                    <img src="skins/VideoConference/images/video_chat.png" width="15" height="9" id="Image8" />
+                  </a>
+                </li>
+                <li id="my-img3" class="wrtcLocalSpeakerBtn" style="margin-top: 4px;">
+                  <a href="#"
+                     onmouseout="MM_swapImgRestore()"
+                     onmouseover="MM_swapImage('Image9','','skins/VideoConference/images/sound-h.png',1)">
+                    <img src="skins/VideoConference/images/volume.png" width="14" height="11" id="Image9" />
+                  </a>
+                </li>
+                <li id="my-img6" class="wrtcHangupAllAction" style="margin-top: 4px; height: 12px; width: 25px;">
+                  <a href="#"
+                     onmouseout="MM_swapImgRestore()"
+                     onmouseover="MM_swapImage('Image10','','skins/VideoConference/images/phoneicon1.png',1)">
+                    <img src="skins/VideoConference/images/phoneicon.png" width="25" height="12" id="Image10" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- templates/partials/link_area.ejs -->
+<div id="link_area" class="link_area" style="right:unset; top:unset; bottom:-3px;">
+  <h1 class="link_h1">Link to join conference</h1>
+  <input type="text" id="link" name="link" placeholder="..." class="link_area_input"/>
+  <input type="submit" id='copy_link' class="submit_bt" data-clipboard-target="link" value=""/>
+</div>
+<!-- templates/partials/link_area.ejs -->
+
+
+          <h1 class="chat_h1" style="display:none;">Chat</h1>
+          <div class="chat_msgs" style="display:none;">
+            <div class="wrtcChatScroll chat_msg_text scroll">
+              <p  id="wrtcChatLog">
+                <!-- Chat messages are here -->
+              </p>
+            </div>
+            <div id="wrtcChatInputGroup">
+              <textarea cols="20" rows="7" id="wrtcChatInput" autofocus placeholder="Type your message here"></textarea>
+              <input id="wrtcChatButton" type="submit" class="send_bt" value=""/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- templates/partials/hidden_inputs.ejs -->
+<!-- Placeholders for parameters to pass to the script -->
+<!-- Internal parameters -->
+<input type="hidden" id="autostart" value="">
+<input type="hidden" id="action" value="">
+<input type="hidden" id="roomId" value="">
+
+<input type="hidden" id="opuid" value="">
+<input type="hidden" id="opName" value="">
+
+<input type="hidden" id="roles" value="">
+<!-- Internal parameters -->
+
+<!-- Placeholders for external parameters to be used by script -->
+<input type="hidden" id="userName" value='Demo User Name'>
+<!-- Placeholders for external parameters to be used by script -->
+
+<!-- Internal parameters -->
+<input type="hidden" id="userId" value="">
+<!--input type="hidden" id="version" value="patient"-->
+<!-- Internal parameters -->
+<!-- Placeholders for external parameters to be used by script -->
+<!-- templates/partials/hidden_inputs.ejs -->
+
+
+      <div class="wrtcChatArea">
+
+        <div id="wrtcStartInfo" style="visibility:hidden">
+          <div id="wrtcStartInfoText">
+          </div>
+
+          <div id="wrtcMediaSourceSelect_2">
+  <br>
+  <div>Second camera source:</div>
+  <div class='select' style="display:none">
+    <label for='wrtcAudioSource_2'>audio: </label>
+    <select id='wrtcAudioSource_2'  class="wrtcSelectSource"></select>
+  </div>
+  <div class='select'>
+    <label for='wrtcVideoSource_2'>video: </label>
+    <select id='wrtcVideoSource_2'  class="wrtcSelectSource"></select>
+  </div>
+</div>
+
+
+          <br>
+
+          <!-- templates/partials/basic-buttons.ejs -->
+<div id="wrtcControls">
+  <button id="btnStartLocal"        class="wrtcButton">Start Video 1</button>
+  <button id="btnStartLocal2"       class="wrtcButton">Start Video 2</button>
+  <button id="btnStartLScreen"      class="wrtcButton wrtcStartScreenBtn">Start Local Screen</button>
+
+  <button id="btnCallRemote"        class="wrtcButton">Call Remote</button>
+  <button id="btnHangup"            class="wrtcButton wrtcHangupBtn">Hang Up</button>
+  <button id="btnStartScreen"       class="wrtcButton">Share Screen</button>
+  <button id="btnRequestScreen"     class="wrtcButton">See Patient Screen</button>
+  <button id="btnCallRemote2"       class="wrtcButton">Second camera</button>
+  <input type="button" id="btnDataChannel"       class="wrtcButton" value="Data Channel">
+
+  <input type="button" id="btnMeetPhysician"     class="wrtcButton" value="Meet Physician">
+  <input type="button" id="btnMeetPhysicianLow"  class="wrtcButton" value="Meet Physician (Low Bandwidth)">
+</div>
+<!-- templates/partials/basic-buttons.ejs -->
+
+
+        </div>
+
+        <!-- Chat area -->
+        <!--div id="wrtcChatLog">
+        </div-->
+
+        <!--div id="wrtcChatInputGroup">
+          <input type="text"   id="wrtcChatInput" autofocus>
+          <input type="submit" id="wrtcChatButton" value="Send">
+        </div-->
+        <!-- Chat area -->
+
+      </div>
+
+      <!-- templates/partials/stats.ejs -->
+<!-- need to add a tabindex attribute to the <div> to allow it to receive the focus
+      http://stackoverflow.com/questions/3759339/keypress-on-a-div-tag               -->
+<div id="wrtcStats" class="wrtcHidden" tabindex="1">
+  <div id="wrtcStats1">
+    <h3>peerConnection.getStats()</h3>
+  </div>
+  <div id="wrtcStats2">
+    Waiting for the data...
+  </div>
+</div>
+<!-- templates/partials/stats.ejs -->
+
+
+    </div>
+    <!-- page2 -->
+
+  </div>
+  <!-- wrtcWrapper -->
+
+</body>
+
+<!-- templates/partials/spinner.ejs -->
+<!-- Start spin.js -->
+<script type="text/javascript">
+  var SPINNER_OPTIONS = {};
+  var wrtcSpinner  = new Spinner(SPINNER_OPTIONS).spin(document.body);
+</script>
+<!-- Start spin.js -->
+<!-- templates/partials/spinner.ejs -->
+
+
+
+</html>

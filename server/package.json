@@ -1,0 +1,18 @@
+{
+  "name": "WebRTC_Videochat",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^3.5.1",
+    "consolidate": "^0.10.0",
+    "swig": "^1.3.2",
+    "nodemailer": "^1.1.1",
+    "socket.io": "^0.9.16"
+  }
+}

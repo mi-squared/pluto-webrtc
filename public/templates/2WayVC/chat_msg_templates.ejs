@@ -1,0 +1,31 @@
+<!-- TEMPLATE chat-msg-templates BEGIN -->
+<script id="chat-msg-local-template" type="text/template" class="template">
+  <div class="clear">
+    <div class="self-body p-right">
+      <?= text ?>
+      <span class="self-trg"></span>
+    </div>
+    <p class="time-stam time-left"><?= time ?></p>
+  </div>
+</script>
+
+<script id="chat-msg-remote-template" type="text/template" class="template">
+  <div class="clear">
+    <div class="next-body">
+      <?= text ?>
+      <span class="next-trg"></span>
+    </div>
+    <p class="time-stam text-right"><?= time ?></p>
+  </div>
+</script>
+
+<script id="chat-msg-system-template" type="text/template" class="template">
+  <div class="clear">
+    <div class="next-body">
+      <?= text ?>
+      <span class="next-trg"></span>
+    </div>
+    <p class="time-stam text-right"><?= time ?></p>
+  </div>
+</script>
+<!-- TEMPLATE chat-msg-templates END -->

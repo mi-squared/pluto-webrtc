@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+#wrtcChatLog {
+  position: absolute;
+  left: 0; right:0;
+  top: 240px;
+  bottom: 28px;
+  /*margin-left:0px;*/
+  /*width: 500px;*/
+  /*height: 120px;*/
+  /*height: 120px;*/
+
+  padding: 5px;
+  margin-bottom: 5px;
+  overflow: auto;
+  border: 1px solid grey;
+  font: 12px sans-serif;
+  /* background-color: white;*/
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#wrtcChatInputGroup {
+  height: 28px;
+  bottom: 0;
+}
+
+#wrtcChatInput {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  /*margin-left:0px;*/
+  /*width: 530px;*/
+  width: 70%;
+  /*height: 20px;*/
+}
+#wrtcChatButton {
+  position: absolute;
+  right: 0%;
+  bottom: 0;
+  margin: 5px 0px;
+
+  width: 25%;
+  /*margin-left: 4px;*/
+  /*width: 50px;*/
+  /*	height: 20px;*/
+  /*font: 12px sans-serif;*/
+}
+
+/* Chat Message Colors */
+#wrtcChatLog .wrtcLine {
+}
+
+#wrtcChatLog .wrtcLine.wrtcLocal .wrtcName,
+#wrtcChatLog .wrtcLine.wrtcSystem .wrtcDelimiter {
+  color: #000060;
+  font-weight: bold;
+}
+
+#wrtcChatLog .wrtcLine.wrtcRemote .wrtcName,
+#wrtcChatLog .wrtcLine.wrtcSystem .wrtcDelimiter {
+  color: #600000;
+  font-weight: bold;
+}
+
+#wrtcChatLog .wrtcLine.wrtcSystem {
+  color: #000000;
+  font-weight: bold;
+}

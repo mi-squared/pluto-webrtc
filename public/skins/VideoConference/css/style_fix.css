@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+body #page2 {
+  background:#394d5c;
+  height: auto;
+  width:  auto;
+}
+
+#wrtcRemoteVideoHolder {
+  position: absolute;
+  /* height: 100%; */
+  /* width: 100%; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Do not show bottom panel with the buttons for local videos */
+.wrtcContainer.wrtcLocal:hover .wrtcBottom {
+  display: none;
+}
+
+.wrtcBtn.wrtcHangupBtn {
+  margin-top: 2px;
+  height: 18px;
+  width:  18px;
+  content: url('/skins/default/images/wrtc_handset_down.png');
+}
+
+.wrtcBtn.wrtcHangupBtn:hover {
+}
+
+.online_chat_area {
+  padding: 0;
+}
+.left_area {
+  height: 750px;
+}
+.left_area_img1 {
+  position: absolute;
+  border: 4px solid #248913;
+  border-radius: 10px;
+}
+.right_area {
+  top: 12px;
+}
+
+.wrtcLine.wrtcLocal .wrtcName
+{
+  color:#0072bc;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:14px;
+}
+.wrtcLine.wrtcRemote .wrtcName
+{
+  color:#d11c23;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:14px;
+}
+.wrtcLine.wrtcSystem {
+  color:#000000;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:14px;
+}

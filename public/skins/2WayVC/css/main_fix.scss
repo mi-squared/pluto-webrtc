@@ -1,0 +1,219 @@
+//.wrtcContainer.wrtcLocal.wrtcVideo,
+.wrtcRemoteVideoHolder {
+  // To remove padding defined in JS
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+}
+.wrtcLocalVideoHolder,
+.wrtcContainerWrapper {
+  height: 100%;
+  width: 100%
+}
+
+.wrtcContainer {
+  &.wrtcLocal {
+    border: 1px solid #ffffff;
+  }
+  &.wrtcRemote {
+    border: none;
+  }
+}
+.wrtcOverlay {
+  .wrtcPanel.wrtcBottom {
+    top: 3px; // Move bottom panel to the top
+  }
+
+  .wrtcPanel.wrtcTop { // Move top panel (with name) to bottom
+    top: unset;
+    bottom: 3px;
+  }
+}
+
+.wrtcLocal {
+  .wrtcText {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .wrtcPanel.wrtcBottom { // Hide panel for local video preview
+    display: none;
+  }
+}
+
+.wrtcRemote {
+  .wrtcOverlay {}
+  .wrtcText {
+    //display: none; // show uername again (it was hidden by client request)
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .wrtcPanel.wrtcTop { // Adjust position comparing to local video
+    bottom: 14px;
+  }
+}
+
+.callign-section {
+  background-image: none; // Remove image
+}
+
+.caller {
+  background-image: none; // Remove image
+  border: none;           // Border now is at .wrtcContainer.wrtcLocal
+  bottom: 0; right: 0; // Remove space between this element and border (as we already have padding in videos)
+}
+
+// Turn buttons on/off
+.off {
+  .click-img {
+    display: none;
+  }
+  .shown-img {
+    display: inline-block !important;
+  }
+}
+
+.user-list {
+
+  .present-li {
+    //text-overflow: ellipsis; // enable ellipsis if name is longer than available place
+    //white-space: nowrap;     // turn off word wrap to next line
+    position: relative;
+    height: 18px;
+
+    .username {
+      width: unset;
+      //min-width: 105px;
+      //min-width: 50px;
+      //max-width: 200px;
+      text-overflow: ellipsis;
+      cursor: pointer;
+
+      left: 18px;
+      right: 47px;
+      position: absolute;
+
+      &:hover {
+        color: #000000;
+      }
+    }
+    .user-situation.p-right {
+      position: absolute;
+      float: unset;
+      right: 5px;
+    }
+  }
+
+}
+
+.texting {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.chatting-position {
+  position: absolute;
+}
+
+//#page1 {
+//  background-color: #ffffff;
+//}
+
+// toastr plugin
+
+.toast .btn {
+  width: 80px;
+  height: 23px;
+}
+
+//
+
+.overlay-disable {
+  top: 0;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  //opacity: 0.07;
+  opacity: 0.7;
+  /* background-color: #000000; */
+  background-color: #ffffff;
+}
+
+
+.dialog-cover {
+  display: none; // Hidden on start
+
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(128, 128, 128, 0.5);
+  font-family: "Open Sans",sans-serif;
+
+  .online-box-center {
+    margin: 20px auto;
+    border: 2px solid darkgrey;
+    padding: 10px;
+    position: relative;
+    height: 75%;
+    width: 200px;
+    background-color: white;
+  }
+}
+
+
+// jquery-ui fix
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+  border-bottom-right-radius: 1px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+  border-bottom-left-radius: 1px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+  border-top-right-radius: 1px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+  border-top-left-radius: 1px;
+}
+
+fieldset {
+  padding: 10px 25px;
+  border: 1px solid #bbbbbb;
+
+  div {
+    padding: 5px 0;
+  }
+}
+
+input {
+  padding: 5px 5px;
+}
+
+.ui-widget-content {
+  border: 1px solid #bbbbbb;
+}
+
+.ui-widget {
+  font-family: "Open Sans",sans-serif;
+  font-size: 15px;
+
+  input, select, textarea, button {
+    font-family: "Open Sans",sans-serif;
+    font-size: 12px;
+  }
+
+  input {
+    min-width: 200px;
+  }
+
+  .ui-widget {
+    font-size: 12px;
+  }
+
+}
+//

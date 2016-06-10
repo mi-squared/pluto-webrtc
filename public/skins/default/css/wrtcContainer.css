@@ -1,0 +1,269 @@
+.wrtcDebug {
+  display: none; }
+
+.display_none {
+  display: none; }
+
+.display_block {
+  display: block; }
+
+.wrtcContainer {
+  transition: all 0.2s; }
+
+.wrtcContainer {
+  z-index: 0;
+  border: 1px solid #7d7d7d;
+  /*grey;*/ }
+
+.wrtcContainer video {
+  height: 100%;
+  width: 100%; }
+
+.wrtcContainer.wrtcLocal.wrtcActiveTrue,
+.wrtcContainer.wrtcRemote.wrtcActiveTrue {
+  display: block; }
+
+.wrtcContainer.wrtcLocal.wrtcActiveFalse,
+.wrtcContainer.wrtcRemote.wrtcActiveFalse {
+  display: none; }
+
+.wrtcContainer video::-webkit-media-controls {
+  display: none !important;
+  background-color: grey; }
+
+.wrtcContainer.wrtcRemote {
+  position: absolute;
+  /*relative;*/
+  /*display: table-cell;*/
+  /*border: none;*/
+  /*height: 360px; width: 480px;*/
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%; }
+
+.wrtcContainer.wrtcRemote.wrtcVideo {
+  /*height: 480px; width: 640px;*/
+  /*height: 600px; width: 800px;*/ }
+
+.wrtcContainer.wrtcRemote.wrtcScreen {
+  /*height: 600px; width: 800px;*/ }
+
+.wrtcContainer.wrtcRemote video {
+  position: absolute;
+  z-index: 0;
+  /*height: 100%; width: 100%;*/ }
+
+/*.wrtcContainer.wrtcRemote.wrtcVideo video {
+  height: 100%; width: 100%;
+}
+
+.wrtcContainer.wrtcRemote.wrtcScreen video {
+  height: 100%; width: 100%;
+}*/
+.wrtcContainer.wrtcLocal {
+  position: absolute;
+  /*fixed;*/
+  bottom: 6px;
+  /* = 10(distance) - 2(border) */
+  height: 240px;
+  width: 320px;
+  display: none;
+  /*  Hide local preview container on start   */ }
+
+.wrtcContainer.wrtcLocal.wrtcVideo {
+  right: 10px; }
+
+.wrtcContainer.wrtcLocal.wrtcVideo2 {
+  right: 670px; }
+
+.wrtcContainer.wrtcLocal.wrtcScreen {
+  right: 340px; }
+
+/*
+.wrtcContainer.wrtcLocal video {
+  height: 100%;
+  width: 100%;
+}*/
+.wrtcContainer .wrtcOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2147483647;
+  background: center no-repeat;
+  background-size: 70%; }
+
+.wrtcContainer.wrtcVideoTrue .wrtcOverlay {
+  background-image: none; }
+
+.wrtcContainer.wrtcVideoFalse .wrtcOverlay {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url("../images/wrtc_poster_user.png"); }
+
+.wrtcContainer.wrtcVideoFalse video {
+  visibility: hidden; }
+
+.wrtcContainer.wrtcVideo.wrtcActiveFalse .wrtcOverlay {
+  background-image: url("../images/wrtc_poster_video.png"); }
+
+.wrtcContainer.wrtcScreen.wrtcActiveFalse .wrtcOverlay {
+  background-image: url("../images/wrtc_poster_screen.png"); }
+
+.wrtcLocalVideo {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH"; }
+
+.wrtcOverlay .wrtcText {
+  display: table-cell;
+  padding: 4px;
+  font: 12px sans-serif;
+  color: white;
+  text-shadow: 1px 1px 0px black, 0 0 5px black;
+  cursor: default; }
+.wrtcOverlay .wrtcTop {
+  position: absolute;
+  top: 3px; }
+.wrtcOverlay .wrtcBottom {
+  position: absolute;
+  bottom: 3px; }
+.wrtcOverlay .wrtcLeft {
+  position: absolute;
+  left: 3px; }
+.wrtcOverlay .wrtcRight {
+  position: absolute;
+  right: 3px; }
+.wrtcOverlay .wrtcTop .wrtcRight {
+  display: none; }
+.wrtcOverlay .wrtcTop,
+.wrtcOverlay .wrtcBottom {
+  position: absolute;
+  height: 25px;
+  left: 3px;
+  right: 3px; }
+.wrtcOverlay .wrtcTop {
+  /*  top: 3px;**/ }
+.wrtcOverlay .wrtcBottom {
+  /*bottom: 3px;*/
+  background-color: rgba(128, 128, 128, 0.7);
+  border-radius: 2px;
+  display: none;
+  /*visibility: hidden;*/ }
+
+.wrtcContainer:hover .wrtcBottom {
+  display: block;
+  /*visibility: visible;*/ }
+
+.wrtcOverlay .wrtcLeft {
+  position: absolute;
+  /*left: 2px;*/ }
+
+.wrtcOverlay .wrtcRight {
+  position: absolute;
+  /*right: 2px;*/ }
+
+/*.wrtcOverlay*/
+.wrtcBtn {
+  display: inline-block;
+  position: relative; }
+
+/*.wrtcOverlay*/
+.wrtcBtn {
+  height: 25px;
+  width: 25px;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  opacity: 0.6; }
+  .wrtcBtn:hover {
+    opacity: 1.0; }
+  .wrtcBtn.wrtcDisabled {
+    cursor: default;
+    opacity: 0.15; }
+  .wrtcBtn.wrtcHidden {
+    display: none; }
+
+.wrtcOverlay .wrtcSpeakerBtn {
+  background-image: url("../images/wrtc_speaker_off.png"); }
+  .wrtcOverlay .wrtcSpeakerBtn.wrtcOn {
+    background-image: url("../images/wrtc_speaker_volume_3.png"); }
+
+.wrtcRemote.wrtcScreen .wrtcSpeakerBtn,
+.wrtcLocal.wrtcScreen .wrtcSpeakerBtn,
+.wrtcLocal.wrtcVideo .wrtcSpeakerBtn {
+  /* ...for Local Video           */
+  display: none; }
+
+.wrtcOverlay .wrtcHangupOneBtn {
+  background-image: url("../images/wrtc_handset_down.png"); }
+
+.wrtcRemote.wrtcScreen .wrtcHangupOneBtn,
+.wrtcLocal.wrtcScreen .wrtcHangupOneBtn,
+.wrtcLocal.wrtcVideo .wrtcHangupOneBtn {
+  /* ...for Local Video           */
+  display: none; }
+
+.wrtcOverlay .wrtcVideoBtn {
+  background-image: url("../images/wrtc_camera_pause.png"); }
+
+.wrtcOverlay .wrtcVideoBtn.wrtcOn {
+  background-image: url("../images/wrtc_camera_on.png"); }
+
+.wrtcRemote .wrtcVideoBtn,
+.wrtcLocal.wrtcScreen .wrtcVideoBtn {
+  display: none; }
+
+.wrtcLocal.wrtcVideo .wrtcVideoBtn {
+  display: inline-block; }
+
+.wrtcOverlay .wrtcMicBtn {
+  background-image: url("../images/wrtc_mic_off.png"); }
+
+.wrtcOverlay .wrtcMicBtn.wrtcOn {
+  background-image: url("../images/wrtc_mic_on.png"); }
+
+.wrtcRemote.wrtcVideo .wrtcMicBtn,
+.wrtcRemote.wrtcScreen .wrtcMicBtn,
+.wrtcLocal.wrtcScreen .wrtcMicBtn {
+  display: none; }
+
+.wrtcLocal.wrtcVideo .wrtcMicBtn {
+  display: inline-block; }
+
+.wrtcOverlay .wrtcFullScreenBtn {
+  background-image: url("../images/wrtc_fullscreen_on.png"); }
+  .wrtcOverlay .wrtcFullScreenBtn.wrtcOff {
+    background-image: url("../images/wrtc_fullscreen_off.png"); }
+
+.wrtcOverlay .wrtcInfoBtn {
+  background-image: url("../images/wrtc_info.png"); }
+
+.wrtcLocal .wrtcInfoBtn {
+  display: none; }
+
+.wrtcRemote .wrtcInfoBtn {
+  display: none; }
+
+.wrtcOverlay .wrtcQosBtn {
+  background-image: url("../images/wrtc_exclam1.png"); }
+  .wrtcOverlay .wrtcQosBtn.wrtcOn {
+    background-image: url("../images/wrtc_exclam1.png");
+    background-color: red;
+    display: table-cell;
+    border-radius: 2px; }
+
+.wrtcLocal .wrtcQosBtn {
+  /* Hide for any Local preview */
+  display: none; }
+
+.wrtcRemote .wrtcQosBtn {
+  /* Show button for Remote Video */
+  display: none; }
+
+/*# sourceMappingURL=wrtcContainer.css.map */

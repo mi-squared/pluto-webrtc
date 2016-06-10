@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+body #page2 {
+  background:#394d5c;
+  height: auto;
+  width:  auto;
+}
+
+#wrtcRemoteVideoHolder {
+  position: absolute;
+  /* height: 100%; */
+  /* width: 100%; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Do not show bottom panel with the buttons for local videos */
+.wrtcContainer.wrtcLocal:hover .wrtcBottom {
+  display: none;
+}
+
+.wrtcBtn.wrtcHangupBtn {
+  margin-top: 2px;
+  height: 18px;
+  width:  18px;
+  content: url('/skins/default/images/wrtc_handset_down.png');
+}
+
+.wrtcBtn.wrtcHangupBtn:hover {
+}
+
+.online_chat_area {
+  padding: 0;
+}
+.left_area {
+  height: 750px;
+}
+.left_area_img1 {
+  position: absolute;
+  border: 4px solid #248913;
+  border-radius: 10px;
+}
+.right_area {
+  /*top: 12px;*/
+}
+
+.wrtcLine.wrtcLocal .wrtcName
+{
+  color:#0072bc;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:14px;
+}
+.wrtcLine.wrtcRemote .wrtcName
+{
+  color:#d11c23;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:14px;
+}
+.wrtcLine.wrtcSystem {
+  color:#000000;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+  border-bottom-right-radius: 2px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+  border-bottom-left-radius: 2px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+  border-top-right-radius: 2px;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+  border-top-left-radius: 2px;
+}
+
+.ui-widget-header {
+  border: 1px solid #aaaaaa;
+  background: rgb(147,166,180);
+  color: white;
+   font-weight: unset;
+}
+
+.ui-widget-content {
+  /*border: none;*/
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.ui-widget-content fieldset {
+  border: none;
+}
+
+.ui-dialog {
+  padding: 0;
+}
+
+.ui-dialog-buttonset .ui-state-default,
+.ui-dialog-buttonset .ui-widget-content .ui-state-default,
+.ui-dialog-buttonset  .ui-widget-header .ui-state-default {
+  background: rgb(150,190,95);
+  color: white;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1em;
+  border: 1px solid #cfcfcf;
+}
+
+.ui-widget-content.text {
+  padding: 8px;
+}
+
+.wrtcBottom {
+  top: 3px;
+}

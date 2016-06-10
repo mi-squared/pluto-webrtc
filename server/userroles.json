@@ -1,0 +1,27 @@
+{
+  "employee": {
+    "auth": "noauth",
+    "view": {
+      "employee": true
+    }
+  },
+  "patient": {
+    "auth": "noauth",
+    "view": {
+      "doctor": true
+    }
+  },
+  "doctor": {
+    "auth": "noauth",
+    "view": {
+    }
+  },
+  "admin": {
+    "auth": "password",
+    "view": {
+      "doctor": true,
+      "employee": true,
+      "patient": true
+    }
+  }
+}

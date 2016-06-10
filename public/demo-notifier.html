@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>Demo Notifier</title>
+
+
+  <script type="text/javascript" src="./vendor/js/jquery.js"></script>
+
+
+  <!-- Start script. Sets all the config variables and load other scripts -->
+  <script type="text/javascript" id="wrtc-loader" class="wrtc-loader" data-main="./js/apps/notifier/index.js" src="./js/mylib/loader.js"></script>
+  <!-- Start script. Sets all the config variables and load other scripts -->
+
+
+  <!-- Integration example script -->
+  <script type="text/javascript">
+
+    // Add an event listener
+    document.addEventListener('wrtc-load-finished', function(e) {
+      console.log('wrtc-load-finished');
+
+      var wrtc = new Wrtc();
+
+      wrtc.login({
+        name:  'test name',
+        roles: ['employee', 'patient', 'doctor'],
+        auth:  'noauth'
+      })
+
+      wrtc.on(MESSAGES.INVITE_URL, function(data) {
+        console.log('INVITE_URL received: data:', data);
+
+        var ok = confirm('You were invited by '+data.from.name+' ['+data.from.id+'] to room '+data.roomId);
+        if (ok) {
+          window.location = decodeURIComponent( data.data.href );
+        }
+      });
+
+    });
+
+  </script>
+  <!-- Integration example script -->
+
+</head>
+<body>
+
+
+</body>
+</html>

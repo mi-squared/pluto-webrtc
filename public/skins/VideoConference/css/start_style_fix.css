@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+body {
+  background: none;
+}
+
+body #page1 {
+  height: 100%;
+  background:#89a4b8;
+}
+
+.center {
+  height: auto;
+}
+
+.title .small {
+  font-size: 20px;
+}
+#page1 ::-webkit-input-placeholder {
+  color: #888;
+  /*padding-left:105px;*/
+}
+
+#page1 :-moz-placeholder { /* Firefox 18- */
+  color: #888;
+  padding-left:105px;
+}
+
+#page1 ::-moz-placeholder {  /* Firefox 19+ */
+  color: #888;
+  padding-left:105px;
+}
+
+#page1 :-ms-input-placeholder {
+  color: #888;
+  padding-left:105px;
+}

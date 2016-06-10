@@ -1,0 +1,24 @@
+<%
+var include_override = function(template) {
+  var TEMPLATE_DIR = './public/templates';
+
+  var DEFAULT_DIR = 'partials/';
+  var PROJECT_DIR = '2WayVC/_page2/';
+
+  var fs   = require('fs');
+  var path = require('path');
+
+  var prj_pathname = path.resolve(TEMPLATE_DIR, PROJECT_DIR, template);
+  var def_pathname = path.resolve(TEMPLATE_DIR, DEFAULT_DIR, template);
+
+  console.log(prj_pathname);
+  console.log(def_pathname);
+
+  fs.stat(prj_pathname, function(err, stats) {
+    if (!err && stats.isFile()) {
+      include(prj_pathname);
+    } else {
+      include (def_pathname);
+    } });
+}
+%>

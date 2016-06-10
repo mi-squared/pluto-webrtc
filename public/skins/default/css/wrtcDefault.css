@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+body {
+}
+
+.page1, .page2{
+  visibility: hidden;
+}
+/* Try to make Firefox & Chrome more similar to each other */
+input[type='button'],
+input[type='submit'] {
+  font: bold 12px Arial, Helvetica, sans-serif;
+  padding: 3px 12px;
+}
+input[type='text'] {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*width:   100px;*/
+  /*display: block;*/
+  height:  22px;
+  padding: 0 0 0 0px;
+  font-size: 12px;
+  margin: 7px 0px;
+}
+
+/*
+ * Video Holders
+ */
+
+#wrtcRemoteVideoHolder {
+  position: fixed;/*absolute;*/
+  /*left:0; right: 0; top: 0; bottom: 0;*//*250px;*/
+  left:  0;
+  width: 79%;
+  top: 0;
+  height: 70%;
+  margin: 0;
+  z-index: -1;
+
+  /* Uncomment line below to show RemoteVideoHolder position */
+  /* border: 2px solid yellow; */
+}
+@media (max-width: 1000px) {
+  #wrtcRemoteVideoHolder {
+    right: 210px;
+    width: auto;
+  }
+}
+
+#wrtcLocalVideoHolder {
+  position: fixed;/*absolute;*/
+  bottom: 0; height: 30%;
+  right: 21%; width: 75%;
+  z-index: -1;
+
+  /* !!!
+    To allow mouse hover to be passed to Remove Videos.
+    Does not work in IE10 and older IEs
+    It also block all events for child elements */
+  /* pointer-events: none; */
+
+
+  /* Uncomment to show LocalVideoHolder position */
+  /* border: 2px solid red; */
+}
+
+@media (max-width: 1000px) {
+  #wrtcLocalVideoHolder {
+    right: 210px;
+    /*width: auto;*/
+  }
+}
+
+
+/***********************************************************************************************************************
+ *
+ */
+
+.wrtcChatArea {
+  position: absolute;
+/*  bottom: 0;
+  width: 600px;
+  height: 280px; */
+  right: 0;
+  width: 20%;
+  /*min-width: 220px;*/
+  top:0;
+  /*height: 100%;*/
+  bottom: 0;
+  margin: 5px;
+}
+@media (max-width: 1000px) {
+  .wrtcChatArea {
+    min-width: 200px;
+  }
+}
+
+#wrtcStartInfo {
+  font: 12px sans-serif;
+}
+#wrtcControls {
+  left: 0;
+  /*margin-left: 0;*/
+  /*width: 500px;*/
+  /*position: absolute; */
+  position: relative;
+  /*border:2px solid blue;*/
+}
+#wrtcControls .wrtcButton {
+  position: relative;
+  padding: 5px 5px;
+  min-width: 100px;
+  max-width: 150px;
+  margin: 5px 5px;
+  font: 12px sans-serif;
+
+  display: none; /* Hide all buttons by default */
+}
+
+.wrtcClipBtn {
+  background-image: url('../images/wrtc_clipboard_copy.png');
+}
+/*
+*/
+
+#wrtcMediaSourceSelect_2 {
+  display: none; /* Do not show on init */
+}
+.wrtcSelectSource {
+  min-width: 75%;
+  max-width: 75%; /* Limit width of HTML Select for long source descriptions*/
+}
+
+/*
+*/
+
+
+/*************************************************/
+
+.wrtcFlipImage {
+  -moz-transform:    scaleX(-1);
+  -o-transform:      scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform:         scaleX(-1);
+  filter:      FlipH;
+  -ms-filter:  "FlipH";
+}
+
+
+/*.wrtcStatsInfo td,
+.wrtcFlowInfo*/ td {
+  word-wrap: break-word;
+}

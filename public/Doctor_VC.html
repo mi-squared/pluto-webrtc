@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+
+  <!-- templates/partials/head.ejs -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Video Conference</title>
+
+
+
+
+<!-- jQuery and plugins -->
+<script type="text/javascript" src="./vendor/js/jquery.js"></script>
+
+<script type="text/javascript" src="./vendor/js/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="vendor/css/jquery-ui.css">
+<!-- jQuery and plugins -->
+
+
+<!-- Load Zero Clipboard -->
+<!--<script type="text/javascript" src="js/vendor/ZeroClipboard.js"></script>-->
+<!-- Load Zero Clipboard -->
+
+
+<!-- Load spin.js -->
+<script type="text/javascript" src="./vendor/js/spin.js"></script>
+<!-- Load spin.js -->
+
+
+<!-- Toastr -->
+<script type="text/javascript" src="./vendor/js/toastr.js"></script>
+<link rel="stylesheet" type="text/css" href="vendor/css/toastr.css">
+<!-- Toastr -->
+
+
+<!-- Start script. Sets all the config variables and load other scripts -->
+<!--<script type="text/javascript" src="./common/app_config.js"></script>-->
+<script type="text/javascript"
+        id="wrtc-loader"
+        class="wrtc-loader"
+        data-main="./js/apps/wrtcapp/index.js"
+        src="./js/mylib/loader.js"></script>
+<!-- Start script. Sets all the config variables and load other scripts -->
+
+
+<!-- Integration example script -->
+<script type="text/javascript" src="./js/example.js"></script>
+<!-- Integration example script -->
+
+
+<link rel="stylesheet" type="text/css" href="./skins/default/css/wrtcContainer.css">
+<link rel="stylesheet" type="text/css" href="./skins/default/css/wrtcStats.css">
+<!-- templates/partials/head.ejs -->
+
+<!-- templates/partials/view-template.ejs -->
+<!-- Handlebars Template for dynamic addition of remote videos -->
+<!-- Do not modify IDs of elements                             -->
+<script id="wrtcViewTemplate" type="text/x-handlebars-template">
+
+  <div     id="wrtc{{classLocalOrRemote}}Container_{{vidId}}"
+           class="wrtcContainer wrtc{{classLocalOrRemote}} wrtc{{classVideoOrScreen}}"
+           data-conn-id="{{connId}}"
+           draggable="true"
+    >
+    <!-- wrtcVideoFalse wrtcVideoTrue - has Video tracks -->
+
+    <video id="wrtc{{classLocalOrRemote}}Element_{{vidId}}"
+           class="wrtc{{classLocalOrRemote}}{{classVideoOrScreen}} wrtcVideoElement"
+           data-conn-id="{{connId}}"
+           autoplay="{{autoplay}}"
+           {{muted}}
+      >
+    </video>
+
+    <div   id="wrtc{{classLocalOrRemote}}Overlay_{{vidId}}"
+           class="wrtcOverlay"
+      >
+
+      <div class="wrtcPanel wrtcTop">
+        <div class="wrtcLeft">
+          <div id="wrtc{{classLocalOrRemote}}Text_{{vidId}}_Left"  class="wrtcText">{{infoText}}</div>
+        </div>
+        <div class="wrtcRight">
+          <div id="wrtc{{classLocalOrRemote}}Text_{{vidId}}_Right" class="wrtcText">{{infoText}}</div>
+        </div>
+      </div>
+
+      <div class="wrtcPanel wrtcBottom">
+        <div class="wrtcLeft">
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcSpeakerBtn    wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcVideoBtn      wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcMicBtn        wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcHangupOneBtn           "></div>
+        </div>
+        <div class="wrtcRight">
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcInfoBtn             "></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcFullScreenBtn wrtcOn"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</script>
+<!-- templates/partials/view-template.ejs -->
+
+
+  <!-- 2WayVC/_head.ejs -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="skins/2WayVC/css/main.css" rel="stylesheet" type="text/css">
+<link href="skins/2WayVC/css/main_fix.css" rel="stylesheet" type="text/css">
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+<link href="vendor/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+
+<!-- TEMPLATE userlist-user-templates BEGIN -->
+<script id="userlist-user-default-template" type="text/template" class="template">
+
+  <li class="present-li" data-user-id="<?= id ?>">
+    <!--<a href="#" class="username active-user start-call-action"><?= getVisibleName() ?></a>-->
+    <div class="username active-user start-call-action"><?= getVisibleName() ?></div>
+    <ul class="inline unstyled user-situation p-right">
+      <li><a class="start-chat-action" href="#"><img src="skins/2WayVC/images/sms.png"></a></li>
+      <li><a class="start-call-action"  href="#"><img src="skins/2WayVC/images/call.png"></a></li>
+    </ul>
+    <div class="clear"></div>
+  </li>
+
+</script>
+<!-- TEMPLATE userlist-user-templates END -->
+
+<!-- TEMPLATE userlist-user-templates BEGIN -->
+<script id="userlist-user-default-template-invite" type="text/template" class="template">
+
+  <li class="present-li" data-user-id="<?= id ?>">
+    <a href="#" class="username active-user add-call-action"><?= getVisibleName() ?></a>
+    <div class="clear"></div>
+  </li>
+
+</script>
+<!-- TEMPLATE userlist-user-templates END -->
+
+<!-- TEMPLATE chat-msg-templates BEGIN -->
+<script id="chat-msg-local-template" type="text/template" class="template">
+  <div class="clear">
+    <div class="self-body p-right">
+      <?= text ?>
+      <span class="self-trg"></span>
+    </div>
+    <p class="time-stam time-left"><?= time ?></p>
+  </div>
+</script>
+
+<script id="chat-msg-remote-template" type="text/template" class="template">
+  <div class="clear">
+    <div class="next-body">
+      <?= text ?>
+      <span class="next-trg"></span>
+    </div>
+    <p class="time-stam text-right"><?= time ?></p>
+  </div>
+</script>
+
+<script id="chat-msg-system-template" type="text/template" class="template">
+  <div class="clear">
+    <div class="next-body">
+      <?= text ?>
+      <span class="next-trg"></span>
+    </div>
+    <p class="time-stam text-right"><?= time ?></p>
+  </div>
+</script>
+<!-- TEMPLATE chat-msg-templates END -->
+
+<!-- 2WayVC/_head.ejs -->
+
+
+
+  
+  <style>
+    .online-box {
+      display: none;
+    }
+    .callign-section {
+      left: 0;
+      width: 100%;
+    }
+  </style>
+  
+
+</head>
+<body>
+<!-- templates/partials/hidden_inputs.ejs -->
+<!-- Placeholders for parameters to pass to the script -->
+<!-- Internal parameters -->
+<input type="hidden" id="autostart" value="">
+<input type="hidden" id="action" value="">
+<input type="hidden" id="roomId" value="">
+
+<input type="hidden" id="opuid" value="">
+<input type="hidden" id="opName" value="">
+
+<input type="hidden" id="roles" value="">
+<!-- Internal parameters -->
+
+<!-- Placeholders for external parameters to be used by script -->
+<input type="hidden" id="userName" value='Demo User Name'>
+<!-- Placeholders for external parameters to be used by script -->
+
+<!-- Internal parameters -->
+<input type="hidden" id="userId" value="">
+<!--input type="hidden" id="version" value="patient"-->
+<!-- Internal parameters -->
+<!-- Placeholders for external parameters to be used by script -->
+<!-- templates/partials/hidden_inputs.ejs -->
+
+
+<div id="wrtcMainWrapper">
+  <!-- page1 -->
+<div id="page1" class="wrapper" style="display:none; visibility:hidden;">
+
+  <div class="center">
+
+    <div class="elegant-aero">
+      <input type="text"   id="wrtcNameInput"       placeholder="Your Full Name"                style="display:none">
+      <input type="text"   id="wrtcYourEmailInput"  placeholder="Your Email Address (Optional)" style="display:none">
+      <input type="text"   id="wrtcOtherEmailInput" placeholder="Other Party Email Address"     style="display:none">
+      <input type="button" id="btnStartEmailCall"   class="wrtcButton button" value="Start Video Conference" style="display:none">
+    </div>
+
+  </div>
+</div>
+<!-- page1 -->
+
+  <div id="page2" style="display:none;">
+  <div class="container">
+
+    <div class="h-550">
+
+      <div  class="online-box">
+  <div class="padd-20">
+    <p class="online-box-title">Participants (<span class="number-presenters">0</span>)</p>
+    <div class="h-500 content mCustomScrollbar" data-mcs-theme="minimal-dark">
+      <!--<p class="online-subtitle">Presenters (<span class="number-presenters">0</span>)</p>-->
+      <ul class="user-list unstyled">
+
+        <!-- elements with user status -->
+
+      </ul>
+    </div>
+  </div>
+  <div class="overlay-disable" style="display:none"></div>
+</div>
+
+
+      <div class="callign-section">
+        <!-- Remote Videos Placeholder  -->
+<div id="wrtcRemoteVideoHolder" class="wrtcRemoteVideoHolder">
+  <!-- Here will be placed the remote videos based on handlebars template each inside additional <div> -->
+</div>
+<!-- Remote Videos Placeholder  -->
+
+        <p class="calling-username"></p>
+        <div class="caller">
+          <div class="rela-200">
+            <!-- Local Camera & Screen Previews -->
+<div id="wrtcLocalVideoHolder" class="wrtcLocalVideoHolder">
+</div>
+<!-- Local Camera & Screen Previews -->
+
+          </div>
+        </div>
+      </div>
+
+      <div class="chatting-box">
+  <div class="chatting-position content mCustomScrollbar" data-mcs-theme="minimal-dark">
+
+    <div style="display:none">
+      <div class="conversation-date">
+        <span>today</span>
+      </div>
+      <div class="border-b">
+      </div>
+    </div>
+
+    <div id="wrtcChatLog">
+      <!-- Example of chat messages
+      <div class="clear">
+        <div class="next-body">
+          how are you
+          <span class="next-trg"></span>
+        </div>
+        <p class="time-stam text-right">5:06pm</p>
+      </div>
+      <div class="clear">
+        <div class="next-body">
+          fine thanks
+          <span class="next-trg"></span>
+        </div>
+        <p class="time-stam text-right">5:02pm</p>
+      </div>
+      -->
+    </div>
+
+
+  </div>
+  <div class="texting clear">
+    <div class="writtting">
+      <textarea id="wrtcChatInput"> </textarea>
+    </div>
+    <a id="wrtcChatButton" href="#" class="send">Send</a>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+
+</div>
+
+
+    </div>
+    <div class="clear"></div>
+
+    <div class="chatting-control">
+  <ul class="inline control-ul unstyled">
+
+    <li class="control-li">
+      <a href="#"><img src="skins/2WayVC/images/icon1.png"></a>
+      <span class="timerCounter">00:00:00</span>
+    </li>
+
+    <li class="control-li wrtcAddEmailClick">
+      <a href="#"><img src="skins/2WayVC/images/icon2.png"></a>
+      <span>Add Call</span>
+    </li>
+
+    <li class="control-li">
+      <a href="#" class="chat"><img src="skins/2WayVC/images/icon3.png"></a>
+      <span>Chat</span>
+    </li>
+
+    <li class="control-li wrtcLocalMicBtn">
+      <a href="#" class="click-img"><img src="skins/2WayVC/images/icon4.png"></a>
+      <a href="#" class="shown-img"><img src="skins/2WayVC/images/click1.png"></a>
+      <span>Mic Mute</span>
+    </li>
+
+    <li class="control-li wrtcLocalVideoBtn">
+      <a href="#" class="click-img"><img src="skins/2WayVC/images/icon5.png"></a>
+      <a href="#" class="shown-img"><img src="skins/2WayVC/images/click2.png"></a>
+      <span>Video Off</span>
+    </li>
+
+    <li class="control-li wrtcLocalSpeakerBtn">
+      <a href="#" class="click-img"><img src="skins/2WayVC/images/icon6.png"></a>
+      <a href="#" class="shown-img"><img src="skins/2WayVC/images/click3.png"></a>
+      <span>Speaker Mute</span>
+    </li>
+
+    <li class="control-li wrtcPreviewBtn">
+      <a href="#" class="click-img"><img src="skins/2WayVC/images/icon7.jpeg"></a>
+      <a href="#" class="shown-img"><img src="skins/2WayVC/images/click4.jpeg"></a>
+      <span>Hide My Video</span>
+    </li>
+
+    <li class="control-li wrtcHangupAllAction">
+      <a href="#"><img src="skins/2WayVC/images/icon8.png"></a>
+      <span>End Call</span>
+    </li>
+  </ul>
+</div>
+
+
+  </div>
+</div>
+
+</div>
+
+<!-- templates/partials/dialog-invite-email.ejs -->
+<!-- dialog to enter username and email to invite new user -->
+<div id="dialog-invite-other" title="Enter name and email of the user" style="display:none">
+  <p class="validateTips" style="margin:0;">All form fields are required.</p>
+  <form>
+    <fieldset>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter name" value="" class="text ui-widget-content ui-corner-all">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" placeholder="Enter email" value="" class="text ui-widget-content ui-corner-all">
+      </div>
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+  </form>
+</div>
+<!-- dialog to enter username and email to invite new user -->
+<!-- templates/partials/dialog-invite-email.ejs -->
+
+<!-- templates/partials/dialog-invite-list.ejs -->
+
+<div class="dialog-invite-list dialog-cover">
+
+  
+
+  <div  class="online-box-center">
+      <p class="online-box-title">Choose the user</p>
+      <div class="content mCustomScrollbar" data-mcs-theme="minimal-dark">
+        <ul class="user-list unstyled">
+
+        </ul>
+      </div>
+  </div>
+
+</div>
+
+<!-- templates/partials/dialog-invite-list.ejs -->
+
+<!-- templates/partials/stats.ejs -->
+<!-- need to add a tabindex attribute to the <div> to allow it to receive the focus
+      http://stackoverflow.com/questions/3759339/keypress-on-a-div-tag               -->
+<div id="wrtcStats" class="wrtcHidden" tabindex="1">
+  <div id="wrtcStats1">
+    <h3>peerConnection.getStats()</h3>
+  </div>
+  <div id="wrtcStats2">
+    Waiting for the data...
+  </div>
+</div>
+<!-- templates/partials/stats.ejs -->
+
+
+<script>
+  $(document).ready(function() {
+
+    $("#roles").val("doctor");
+    $("#wrtcMainWrapper").addClass("doctor");
+
+  });
+</script>
+
+</body>
+
+<!-- templates/partials/spinner.ejs -->
+<!-- Start spin.js -->
+<script type="text/javascript">
+  var SPINNER_OPTIONS = {};
+  var wrtcSpinner  = new Spinner(SPINNER_OPTIONS).spin(document.body);
+</script>
+<!-- Start spin.js -->
+<!-- templates/partials/spinner.ejs -->
+
+
+
+</html>

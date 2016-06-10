@@ -1,0 +1,608 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  width:100%;
+
+}
+
+body
+{
+  /*margin:0;*/
+  /*padding:0;*/
+  width:100%;
+  height:100%;
+  background-color:#394d5c;
+}
+.main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1248px;
+}
+#main1 {
+  position: absolute;
+  left: 0px;
+  top: 116px;
+  height: 548px;
+  z-index: 0;
+  width: 1248px;
+}
+
+#main2 {
+  position: absolute;
+  left: 432px;
+  top: 394px;
+  height: 70px;
+  z-index: 1;
+  width: 384px;
+}
+
+#Layer3 {
+  position: absolute;
+  left: 432px;
+  top: 345px;
+  height: 41px;
+  z-index: 2;
+  width: 384px;
+}
+
+#TeleMedicine {
+  position: absolute;
+  left: 563px;
+  top: 75px;
+  height: 15px;
+  z-index: 4;
+  width: 123px;
+}
+#TeleMedicine p {
+  font-family:'dinprolight';
+  color:#000000;
+  font-size:20px;
+}
+
+#EnterYourName {
+  position: relative;
+  left: 565px;
+  top: 359px;
+  height: 12px;
+  z-index: 5;
+  font: 16.0px Arial;
+  /*color: #;*/
+}
+
+
+#MEETPHYSICIAN {
+  position: absolute;
+  left: 540px;
+  top: 422px;
+  height: 15px;
+  z-index: 6;
+  font: 16.69922px Arial;
+  color: #ffffff;
+}
+
+#Freesimplevideochat {
+  position: absolute;
+  left: 274px;
+}
+#wellstats {
+  position: absolute;
+  left: 528px;
+  top: 35px;
+  height: 26px;
+  z-index: 3;
+  width: 194px;
+}
+#wellstats p{
+  font-family:'dinpromedium';
+  color:#8dc63f;
+  font-size:36px;
+}
+
+#Freesimplevideochat {
+  position: absolute;
+  left: 274px;
+  top: 234px;
+  height: 63px;
+  z-index: 7;
+  font: 14.19434px Arial;
+  color: #ffffff;
+}
+.fs{
+  font-family: arial;
+  font-size: 67px;
+  top: 140px;
+  position: absolute;
+  left: 274px;
+  z-index: 7;
+  color: #fff;
+}
+.eyn{
+  width: 360px;
+  margin-top: -14px;
+  height: 35px;
+  color: #000;
+  margin-left: -133px;
+  padding:1px 10px 1px 10px;
+}
+
+::-webkit-input-placeholder {
+  /*color: #000;*/
+  /*padding-left:105px;*/
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  /*color: #000;*/
+  padding-left:105px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  /*color: #000;*/
+  padding-left:105px;
+}
+
+:-ms-input-placeholder {
+  /*color: #000;*/
+  padding-left:105px;
+}
+#page2.wrapper /**/
+{
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  /**/  background-color:#394d5c; /**/
+}
+.online_chat_area {
+  /*position: absolute;*/
+  /*width: 91%;*/
+  width: 100%;
+  /*height: 755px;*/
+  /*height:630px;*/
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #394d5c;
+}
+.left_area {
+  position: absolute;
+  left: 5px;
+  right: 320px;
+  /*left: 65px;*/
+  /*right: 450px;*/
+  top: 12px; /* as with position:absolute of child, padding of parent does not influence to position of child*/
+  bottom: 0;
+  /*float:left;*/
+  /*width:965px;*/
+  /*width: 74.2%;*/
+  /*height:100%;*/
+  margin:0 auto;
+}
+.left_area_img {
+  position: absolute;
+  width:100%;
+  height:auto;
+  margin:0 auto;
+}
+.mimg {
+  width:100%;
+  /*height:auto;*/
+  height:630px;
+  margin:0 auto;
+}
+/*.left_area_img img
+{
+	width:100%;
+	height:100%;
+	margin:0 auto;
+}*/
+.right_area
+{
+  /*float:right;*/
+  width:320px;
+  position: absolute;
+  /*height:755px;*/
+  /*height:630px;*/
+  /*right: 65px;*/
+
+  top:0; bottom:59px; right: 0px;
+}
+
+.my_video_h1 {
+  background-color: #89a4b8;
+  color: #fff;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  /*height: 23px;*/
+  margin: 0;
+  padding: 10px;
+  /*float:left;*/
+  /*float: right;*/
+  width:300px;
+}
+
+.chat_h1 {
+  background-color: #89a4b8;
+  color: #fff;
+  /*float: left;*/
+  /*float: right;*/
+  /*position: absolute;*/
+  position: relative;
+   /*top: 327px;*/
+  /*right: 0;*/
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  height: 26px;
+  /*margin: 4px 0 0;*/
+  margin: 0;
+  padding: 10px 10px 6px;
+  /*width: 300px;*/
+  /*width: 100%;*/
+}
+.chat_window
+{
+  /*height:202px;*/
+  height:282px;
+  /*width:100%;*/
+  width: 320px;
+  /*position: absolute;*/
+  right: 0px;
+  top: 43px;
+  background-color:#fff;
+  /*float:left;*/
+  /*float: right;*/
+}
+#wrtcLocalVideoHolder,
+.chat_window_img {
+  height:160px;
+  width:297px;
+  /*float: right;*/
+  /*background-color:#fff;*/
+  /*margin:6px auto 0;*/
+  /*border:1px solid #7d7d7d;*/
+  /*position: relative;*/
+  position:absolute; bottom:30%; right: 5px;
+
+}
+
+.wrtcContainer.wrtcLocal {
+  background-color: white;/*lightslategrey;*/
+}
+
+.chat_option
+{
+  /*width:100%;*/
+  /*width:300px;*/
+  height:34px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:10px;
+  color:#000;
+}
+.screen
+{
+  float:left;
+  /*float: right;*/
+  margin: 9px 0 0;
+  padding:0 0 0 5px;
+}
+
+.screen li {
+  display: inline-block;
+  float: left;
+  /*float: right;*/
+  list-style: none outside none;
+  margin-bottom: 10px;
+  padding: 0 5px;
+}
+
+.chat_option_icons {
+  /*float: right;*/
+  margin: 6px 10px 0;
+  padding: 0 0 0 5px;
+}
+
+.chat_option_icons li {
+  border-left: 1px solid #e5e5e5;
+  display: inline-block;
+  /*float: left;*/
+  /*float: right;*/
+  line-height: 21px;
+  list-style: none outside none;
+  padding: 0 10px;
+}
+.chat_option_icons li:first-child {
+
+  line-height: 18px;
+
+}
+.chat_option_icons li:last-child {
+  border-right: 1px solid #e5e5e5;
+
+}
+
+.link_h1 {
+  background-color: #89a4b8;
+  color: #fff;
+  /*float: left;*/
+  /*float: right;*/
+  position: absolute;
+  right: 0;
+  top: -35px;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  height: 17px;
+  margin: 0;
+  padding: 9px;
+  width: 302px;
+}
+.link_area
+{
+  /*width:320px;*/
+  /*height:79px;*/
+  height:50px;
+  position: absolute;
+  right: 0px;
+  top: 280px;
+  background-color:#fff;
+  /*float:left;*/
+  /*float: right;*/
+}
+
+.link_area_input {
+  background-color: #fff;
+  border: 1px solid #cfcfcf;
+  color: #4b4b4b;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 10.45px;
+  height: 30px;
+  /*margin: 5px 0 0 7px;*/
+  margin: 5px;
+  width: 320px;
+  float:left;
+}
+.submit_bt
+{
+  width:66px !important;
+  height:32px;
+  border:none;
+  float:right;
+  background:url(../images/copy_link.png) no-repeat;
+  margin:6px 5px 0px 0;
+  cursor:pointer;
+}
+.chat_msgs {
+  /*width:100%;
+  float:left;*/
+  /*width: 320px;*/
+  /*float:right;*/
+  /*position: absolute;*/
+  /*right: 0px;*/
+  /*top: 373px;*/
+  background-color:#fff;
+  /*height:378px;*/
+  /*height:257px;*/
+  top: 42px;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+}
+.left_area_img1{
+  width:100%;
+  height:749PX;
+  margin:0 auto;
+  border:1px solid #000;
+}
+.chat_msg_text
+{
+  /*height:235px;*/
+  /*width:100%;*/
+  width: 300px;
+  /*float: right;*/
+  margin:0 auto;
+}
+.chat_msg_text p
+{
+  font-family:Arial, Helvetica, sans-serif;
+  /*float: right;*/
+  font-size:14px;
+  color:#394d5c;
+  /*width:273px;*/
+  /*padding:10px;*/
+  line-height: 25px;
+
+}
+.pt{
+  color: #fff;
+  font-family: Arial,Helvetica,sans-serif;
+  margin:0 auto;
+  text-align: center;
+}
+.ctext{
+  width:100%;
+  margin-top:330px;
+}
+.chat_msgs textarea
+{
+  width: 258px;
+  height: 47px;
+  padding: 5px;
+  background-color: #f6f6f6;
+  border: 1px solid #ACACAC;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin: 3px;
+  bottom: 0px;
+  position: absolute;
+}
+.send_bt
+{
+  display:block;
+  /*width:35px !important;*/
+  /*height:47px;*/
+  border:none;
+  /*float:right;*/
+  /*background:url(../images/arrow.png) no-repeat;*/
+  /*background:url(../images/chat.png) no-repeat;*/
+  /*background-position:center;*/
+  margin: 8px;
+  cursor:pointer;
+  background-color:#8dc63f;
+  right: 0;
+  bottom: 0px;
+  padding: 13px 5px;
+  position: absolute;
+}
+
+.notes {
+  right:0;  height: 100%; width: 100%; position: relative;background-color: white;
+}
+
+.notes textarea {
+  top: 42px; bottom: 0; width: 300px;
+  position: absolute;  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ACACAC;
+  background-color: #f6f6f6;
+}
+
+.text_chat {
+  position: relative;
+}
+
+.JOIN_ROOM .notes {
+  display: none;
+}
+.JOIN_ROOM .text_chat {
+  height: 100%;
+  display: block;
+}
+.CREATE_ROOM .notes {
+  height: 50%;
+  display: block;
+}
+.CREATE_ROOM .text_chat {
+  height: 50%;
+  display: block;
+}
+#my-img a:hover {
+  content: url('../images/tv-h.png');
+}
+#my-img1 a:hover {
+  content: url('../images/mic-h.png');
+}
+#my-img2 a:hover {
+  content: url('../images/video-h.png');
+}
+#my-img3 a:hover {
+  content: url('../images/sound-h.png');
+}
+#my-img4 a:hover {
+  content: url('../images/btn-01-h.png');
+}
+#my-img6 a:hover {
+  content: url('../images/phoneicon1.png');
+}
+#my-img7 a:hover {
+  content: url('../images/phoneicon1.png');
+}
+.scroll {
+/*height: 302px;*/
+/*height:183px;*/
+margin: 10px 0 10px 10px;
+overflow-x: hidden;
+overflow-y: scroll;
+  width: auto;
+  right: 0;
+  left: 0;
+  bottom:60px;
+  top: 0;
+  position: absolute;
+}
+
+.wrtcLocalVideoBtn {
+  padding:10px;
+}
+
+.wrtcLocalVideoBtn div.img {
+  background: url(../images/cam_on.png);
+  background-repeat: no-repeat;
+  width: 25px;
+  background-size: contain;
+  vertical-align: middle;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.wrtcLocalVideoBtn.off div.img {
+  background: url(../images/cam_off.png);
+  background-size: cover;
+}
+
+.wrtcPreviewBtn div.img {
+  background: url(../images/local_hide.jpeg);
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  vertical-align: middle;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.wrtcPreviewBtn.off div.img {
+  width: 25px;
+  height: 27px;
+  background: url(../images/local_show.jpeg);
+  background-size: cover;
+}
+
+
+.wrtcLocalMicBtn {
+  padding:10px;
+}
+
+.wrtcLocalMicBtn div.img {
+  background: url(../images/mic-on.png);
+  background-repeat: no-repeat;
+  width: 25px;
+  background-size: contain;
+  vertical-align: middle;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.wrtcLocalMicBtn.off div.img {
+  background: url(../images/mic-off.png);
+  background-size: cover;
+}
+
+.wrtcLocalSpeakerBtn {
+  padding:10px;
+}
+
+.wrtcLocalSpeakerBtn div.img {
+  background: url(../images/sound_on.png);
+  background-repeat: no-repeat;
+  width: 25px;
+  background-size: contain;
+  vertical-align: middle;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.wrtcLocalSpeakerBtn.off div.img {
+  background: url(../images/sound_off.png);
+  background-size: cover;
+}
+

@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <%
+  var config = {};
+  config.title = 'Video Conference';
+  config.chromeExtension = false;
+  %>
+
+  <% include ../templates/partials/head.ejs %>
+
+  <!-- These CSS links are changing automatically - do not modify manually -->
+  <link id="style" rel="stylesheet" type="text/css" href="./skins/VideoConference3/css/start_style.css">
+  <link id="style" rel="stylesheet" type="text/css" href="./skins/VideoConference3/css/style.css">
+  <!-- These CSS links are changing automatically - do not modify manually -->
+
+  <!-- This CSS-es modifies customer-provided styles -->
+  <link rel="stylesheet" type="text/css" href="./skins/VideoConference3/css/style_fix.css">
+  <link rel="stylesheet" type="text/css" href="./skins/VideoConference3/css/start_style_fix.css">
+  <!-- This CSS-es modifies customer-provided styles -->
+
+  <% include ../templates/partials/userlist-user-templates.ejs %>
+  <% include ../templates/partials/chat-msg-templates.ejs %>
+
+</head>
+<body>
+  <div id="wrtcMainWrapper">
+
+    <!-- page1 -->
+    <div id="page1" class="wrapper">
+
+      <div class="center">
+
+        <div class="elegant-aero">
+          <input type="text"   id="wrtcNameInput"       placeholder="Your Full Name"                style="display:none">
+          <input type="text"   id="wrtcYourEmailInput"  placeholder="Your Email Address (Optional)" style="display:none">
+          <input type="text"   id="wrtcOtherEmailInput" placeholder="Other Party Email Address"     style="display:none">
+          <input type="button" id="btnStartEmailCall"   class="wrtcButton button" value="Start Video Conference" style="display:none">
+        </div>
+
+      </div>
+    </div>
+    <!-- page1 -->
+
+    <!-- page2 -->
+    <div id="page2" class="wrapper" style="display:none;">
+
+      <div class="online_chat_area">
+
+
+        <div class="left_area" style="height:unset;top:0; bottom:59px;">
+
+          <% include ../templates/partials/remote_video_holder.ejs %>
+
+          <% include ../templates/partials/local_video_holder.ejs %>
+
+        </div>
+
+        <div class="right_area"  style="">
+
+          <div id="notes" class="notes" style="">
+            <h1 class="my_video_h1">Notes</h1>
+            <textarea placeholder="Enter your notes here..."
+                      style=""></textarea>
+          </div>
+
+          <div class="text_chat " style="  ">
+            <h1 class="chat_h1">Chat</h1>
+            <div class="chat_msgs">
+              <div class="wrtcChatScroll chat_msg_text scroll">
+                <p  id="wrtcChatLog">
+                  <!-- Chat messages are here -->
+                </p>
+              </div>
+              <div id="wrtcChatInputGroup">
+                <textarea cols="20" rows="7" id="wrtcChatInput" autofocus placeholder="Type your message here"></textarea>
+                <div id="wrtcChatButton" type="submit" class="send_bt" value="">
+                  <img src="skins/VideoConference3/images/chat.png" width="25" height="25" style="vertical-align: middle;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom_area"  style=" position:absolute; bottom:0; height:60px; left:0; right: 0; background-color: white;">
+
+          <div class="chat_option" style="">
+
+            <ul class="screen" style="display:none;">
+              <!--li><img id="my-img" class="wrtcStartScreenBtn" src="skins/VideoConference3/images/screen_share.png" alt="" /></li-->
+              <li>
+                <a href="#" class="wrtcStartScreenBtn">
+                  <img src="skins/VideoConference3/images/screen_share.png" width="16" height="15" id="Image11" />
+                </a>
+              </li>
+              <li>SHARE SCREEN</li>
+            </ul>
+
+            <ul class="chat_option_icons">
+
+              <!-- Conference Time Counter -->
+              <li style="padding:10px; width:70px;">
+                <img src="skins/VideoConference3/images/timer-icon.png" width="25" height="25" style="vertical-align: middle;"/>
+                <span class="timerCounter">00:00:00</span>
+              </li>
+
+              <!-- Add Call -->
+              <li id="my-img12" class="wrtcAddEmailClick" style="padding:10px;">
+                <a href="#">
+                  <img src="skins/VideoConference3/images/call_icon_1.png" width="25" height="25" style="vertical-align: middle;" id="Image12"
+                    /></a>
+                Add Call
+              </li>
+
+              <!-- Chat -->
+              <li id="my-img14" class="wrtcShowHideChatAction" style="padding:10px;">
+                <a href="#">
+                  <img src="skins/VideoConference3/images/chat.png" width="25" height="25" style="vertical-align: middle;" id="Image14" /></a>
+                Chat
+              </li>
+
+              <!-- Mic Mutes Icon -->
+              <li class="wrtcLocalMicBtn">
+                <div class="img" style=""></div>
+                Mic Mute
+              </li>
+
+              <!-- Video Off Icon -->
+              <li class="wrtcLocalVideoBtn">
+                <div class="img" style=""></div>
+                Video Off
+              </li>
+
+              <!-- Speaker Mute Icon -->
+              <li class="wrtcLocalSpeakerBtn">
+                <div class="img" style=""></div>
+                Speaker Mute
+              </li>
+
+              <!-- Hide My Video -->
+              <li class="wrtcPreviewBtn">
+                <div class="img" style=""></div>
+                Hide My Video
+              </li>
+
+              <!-- End Call -->
+              <li id="my-img10" class="wrtcHangupAllAction" style="padding:10px;">
+                <a href="#">
+                  <img src="skins/VideoConference3/images/end_call.png" width="25" height="25" style="vertical-align: middle;" id="Image10" /></a>
+                End Call
+              </li>
+
+            </ul>
+
+            <!-- Conference URL with Copy Link Button -->
+            <div id="link_area" class="link_area" style="right:0; top: 9px;">
+              <!--<h1 class="link_h1">Link to join conference</h1>-->
+              <input type="text" id="link" name="link" placeholder="..." class="link_area_input"/>
+              <input type="submit" id='copy_link' class="submit_bt" data-clipboard-target="link" value=""/>
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <% include ../templates/partials/hidden_inputs.ejs %>
+
+    <div class="wrtcChatArea">
+
+      <div id="wrtcStartInfo" style="visibility:hidden">
+        <div id="wrtcStartInfoText">
+        </div>
+
+        <% include ../templates/partials/source_2_select.ejs %>
+
+        <br>
+
+        <div class="bottom_area"  style="top:unset; bottom:0; height:60px; left:0; right: 0">
+          <% include ../templates/partials/basic_buttons.ejs %>
+        </div>
+      </div>
+
+      <!--<% include ../templates/partials/dialog-invite-email.ejs %>-->
+
+      <% include ../templates/partials/stats.ejs %>
+
+    </div>
+    <!-- page2 -->
+
+  </div>
+  <!-- wrtcWrapper -->
+
+  <% include ../templates/partials/dialog-invite-email.ejs %>
+
+</body>
+
+<% include ../templates/partials/spinner.ejs %>
+
+</html>

@@ -1,0 +1,52 @@
+<!-- templates/partials/view-template.ejs -->
+<!-- Handlebars Template for dynamic addition of remote videos -->
+<!-- Do not modify IDs of elements                             -->
+<script id="wrtcViewTemplate" type="text/x-handlebars-template">
+
+  <div     id="wrtc{{classLocalOrRemote}}Container_{{vidId}}"
+           class="wrtcContainer wrtc{{classLocalOrRemote}} wrtc{{classVideoOrScreen}}"
+           data-conn-id="{{connId}}"
+           draggable="true"
+    >
+    <!-- wrtcVideoFalse wrtcVideoTrue - has Video tracks -->
+
+    <video id="wrtc{{classLocalOrRemote}}Element_{{vidId}}"
+           class="wrtc{{classLocalOrRemote}}{{classVideoOrScreen}} wrtcVideoElement"
+           data-conn-id="{{connId}}"
+           autoplay="{{autoplay}}"
+           {{muted}}
+      >
+    </video>
+
+    <div   id="wrtc{{classLocalOrRemote}}Overlay_{{vidId}}"
+           class="wrtcOverlay"
+      >
+
+      <div class="wrtcPanel wrtcTop">
+        <div class="wrtcLeft">
+          <div id="wrtc{{classLocalOrRemote}}Text_{{vidId}}_Left"  class="wrtcText">{{infoText}}</div>
+        </div>
+        <div class="wrtcRight">
+          <div id="wrtc{{classLocalOrRemote}}Text_{{vidId}}_Right" class="wrtcText">{{infoText}}</div>
+        </div>
+      </div>
+
+      <div class="wrtcPanel wrtcBottom">
+        <div class="wrtcLeft">
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcSpeakerBtn    wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcVideoBtn      wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcMicBtn        wrtcOn"></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcHangupOneBtn           "></div>
+        </div>
+        <div class="wrtcRight">
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcInfoBtn             "></div>
+          <div class="wrtcBtn wrtcVisible wrtcEnabled wrtcFullScreenBtn wrtcOn"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</script>
+<!-- templates/partials/view-template.ejs -->

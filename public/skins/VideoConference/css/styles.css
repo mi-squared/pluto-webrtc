@@ -1,0 +1,742 @@
+@charset "utf-8";
+@charset "utf-8";
+/* 
+
+Muhammad Fahim Javed
+fahim_javed@hotmail.com
+
+
+*/
+@font-face {
+  font-family: 'dinprolight';
+  src: url('../fonts/ff_din_pro_light_italic-webfont.eot');
+  src: url('../fonts/ff_din_pro_light_italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/ff_din_pro_light_italic-webfont.woff') format('woff'),
+  url('../fonts/ff_din_pro_light_italic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'dinproblack';
+  src: url('../fonts/ff_din_pro_black_italic-webfont.eot');
+  src: url('../fonts/ff_din_pro_black_italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/ff_din_pro_black_italic-webfont.woff') format('woff'),
+  url('../fonts/ff_din_pro_black_italic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'dinprobold';
+  src: url('../fonts/ff_din_pro_bold_italic-webfont.eot');
+  src: url('../fonts/ff_din_pro_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/ff_din_pro_bold_italic-webfont.woff') format('woff'),
+  url('../fonts/ff_din_pro_bold_italic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'dinpromedium';
+  src: url('../fonts/ff_din_pro_medium_italic-webfont.eot');
+  src: url('../fonts/ff_din_pro_medium_italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/ff_din_pro_medium_italic-webfont.woff') format('woff'),
+  url('../fonts/ff_din_pro_medium_italic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+html { padding:0; margin:0; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+.clr { clear: both; font-size; 0; overflow: hidden; height: 0; }
+/* main */
+.main{  position: absolute; left: 0; right: 0; margin-left: auto; margin-right: auto; width: 100%; }
+body { width: 100%;
+  height: 100%;
+  margin: 0; background:url(../images/Background.png) top center repeat; }
+#main1 {
+  position: absolute;
+  left: 0px;
+  top: 116px;
+  height: 548px;
+  z-index: 0;
+  background: #8aa5b9;
+  width: 100%;
+}
+
+#main2 {
+  position: absolute;
+  left: 530px;
+  top: 394px;
+  height: 70px;
+  z-index: 1;
+  width: 384px;
+}
+
+#Layer3 {
+  position: absolute;
+  left: 531px;
+  top: 345px;
+  height: 41px;
+  z-index: 2;
+  width: 384px;
+}
+
+#wellstats {
+  position: absolute;
+  left: 580px;
+  top: 35px;
+  height: 26px;
+  z-index: 3;
+  width: 194px;
+}
+#wellstats p{
+  font-family:'dinpromedium';
+  color:#8dc63f;
+  font-size:36px;
+}
+
+
+#TeleMedicine {
+  position: absolute;
+  left: 610px;
+  top: 75px;
+  height: 15px;
+  z-index: 4;
+  width: 123px;
+}
+#TeleMedicine p{
+  font-family:'dinprolight';
+  color:#000000;
+  font-size:20px;
+}
+
+#EnterYourName {
+  position: absolute;
+  left: 663px;
+  top: 359px;
+  height: 12px;
+  z-index: 5;
+  font: 16.0px Arial;
+  color: #;
+}
+
+#MEETPHYSICIAN {
+  position: absolute;
+  left: 640px;
+  top: 422px;
+  height: 15px;
+  z-index: 6;
+  font: 16.69922px Arial;
+  color: #ffffff;
+}
+
+#Freesimplevideochat {
+  position: absolute;
+  left: 274px;
+  top: 234px;
+  height: 63px;
+  z-index: 7;
+  font: 14.19434px Arial;
+  color: #ffffff;
+}
+.fs{
+  font-family: arial;
+  font-size: 67px;
+  top: 140px;
+  position: absolute;
+  left: 360px;
+  z-index: 7;
+  color: #fff;
+}
+.eyn{
+  width: 380px;
+  margin-top: -14px;
+  height: 35px;
+  color: #000;
+  margin-left: -133px;
+}
+::-webkit-input-placeholder {
+  color: #000;
+  padding-left:105px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #000;
+  padding-left:105px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #000;
+  padding-left:105px;
+}
+
+:-ms-input-placeholder {
+  color: #000;
+  padding-left:105px;
+}
+/*  index-1.html css  */
+body {
+  margin: 0;
+  padding: 0;
+}
+h1{
+  background: #89a4b8;
+  height: 36px;
+  color: #fff;
+  position: absolute;
+  z-index: 19;
+  left: 1009px;
+  top: 43px;
+  width: 301px;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 15px 15px 0px 5px;
+}
+.chat{
+  font-family: Arial;
+  font-size: 17px;
+  padding: 15px 15px 0px 5px;
+  background: #89a4b8;
+  color: #fff;
+  left: 1009px;
+  top: 383px;
+  position: absolute;
+  width: 304px;
+  height: 30px;
+  z-index: 43;
+}
+
+h2{
+  left: 1010px;
+  top: 294px;
+  position: absolute;
+  width: 300px;
+  height: 29px;
+  z-index: 31;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 10px 15px 0px 5px;
+  color: #fff;
+  background: #89a4b8;
+}
+
+#background
+{
+  left: 0px;
+  top: 0px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1368px;
+  height: 858px;
+  overflow: hidden;
+  z-index:0;
+}
+
+#Background
+{
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  width: 1368px;
+  height: 858px;
+  z-index:1;
+}
+
+#index-1
+{
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  width: 1368px;
+  height: 858px;
+  z-index:2;
+}
+
+#index-2
+{
+  left: 27px;
+  top: 19px;
+  position: absolute;
+  width: 1316px;
+  height: 802px;
+  z-index:3;
+}
+
+#index-3
+{
+  left: 42px;
+  top: 54px;
+  position: absolute;
+  width: 958px;
+  height: 758px;
+  z-index:4;
+}
+
+#img-02
+{
+  left: 525px;
+  top: 66px;
+  position: absolute;
+  width: 465px;
+  height: 364px;
+  z-index:5;
+}
+
+#Layer11
+{
+  left: 462px;
+  top: 35px;
+  position: absolute;
+  width: 667px;
+  height: 495px;
+  z-index:6;
+}
+
+#Layer15
+{
+  left: -28px;
+  top: 64px;
+  position: absolute;
+  width: 1600px;
+  height: 500px;
+  z-index:7;
+}
+
+#img-04
+{
+  left: 525px;
+  top: 437px;
+  position: absolute;
+  width: 465px;
+  height: 364px;
+  z-index:8;
+}
+
+#Layer11copy
+{
+  left: 462px;
+  top: 406px;
+  position: absolute;
+  width: 667px;
+  height: 495px;
+  z-index:9;
+}
+
+#img-03
+{
+  left: 52px;
+  top: 437px;
+  position: absolute;
+  width: 465px;
+  height: 364px;
+  z-index:10;
+}
+
+#Layer11copy2
+{
+  left: -12px;
+  top: 406px;
+  position: absolute;
+  width: 668px;
+  height: 495px;
+  z-index:11;
+}
+
+#Layer14
+{
+  left: -306px;
+  top: 363px;
+  position: absolute;
+  width: 1134px;
+  height: 732px;
+  z-index:12;
+}
+
+#img-01
+{
+  left: 52px;
+  top: 67px;
+  position: absolute;
+  width: 466px;
+  height: 363px;
+  z-index:13;
+}
+
+#Layer12copy
+{
+  left: -46px;
+  top: 65px;
+  position: absolute;
+  width: 644px;
+  height: 433px;
+  z-index:14;
+}
+
+#Layer21copy4
+{
+  left: 59px;
+  top: 764px;
+  position: absolute;
+  width: 99px;
+  height: 30px;
+  z-index:15;
+}
+
+#JohnSmithcopy4
+{
+  left: 75px;
+  top: 774px;
+  position: absolute;
+  width: 66px;
+  height: 10px;
+  z-index:16;
+}
+
+#rside
+{
+  left: 1009px;
+  top: 54px;
+  position: absolute;
+  width: 322px;
+  height: 245px;
+  z-index:17;
+}
+
+#tv
+{
+  left: 1025px;
+  top: 272px;
+  position: absolute;
+  width: 20px;
+  height: 18px;
+  z-index:18;
+}
+
+#my-img:hover {
+  content: url('../images/tv-h.png');
+}
+#my-img1:hover {
+  content: url('../images/mic-h.png');
+}
+#my-img2:hover {
+  content: url('../images/video-h.png');
+}
+#my-img3:hover {
+  content: url('../images/sound-h.png');
+}
+#my-img4:hover {
+  content: url('../images/btn-01-h.png');
+}
+.ps{
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 14px;
+  width: 300px;
+  color: #394d5c;
+}
+.p1{
+  font-family:Arial;
+  font-size:14.5px;
+  color:#117bc0;
+}
+.p2{
+  font-family:Arial;
+  font-size:14.5px;
+  color:#d11c23;
+}
+
+#Layer5
+{
+  left: 1000px;
+  top: 50px;
+  position: absolute;
+  z-index:19;
+  width: 339px;
+  height: 46px;
+  z-index:19;
+}
+
+#bar
+{
+  left: 1198px;
+  top: 272px;
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  z-index:20;
+}
+
+#bar1
+{
+  left: 1238px;
+  top: 272px;
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  z-index:21;
+}
+
+#bar2
+{
+  left: 1280px;
+  top: 272px;
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  z-index:22;
+}
+
+
+
+#video
+{
+  left: 1253px;
+  top: 274px;
+  position: absolute;
+  width: 18px;
+  height: 12px;
+  z-index:24;
+}
+
+#mic
+{
+  left: 1212px;
+  top: 271px;
+  position: absolute;
+  width: 14px;
+  height: 20px;
+  z-index:25;
+}
+
+#sound
+{
+  left: 1293px;
+  top: 275px;
+  position: absolute;
+  width: 16px;
+  height: 13px;
+  z-index:26;
+}
+
+#MyVideo
+{
+  left: 1020px;
+  top: 68px;
+  position: absolute;
+  width: 75px;
+  height: 17px;
+  z-index:27;
+}
+
+#vimg
+{
+  left: 1020px;
+  top: 105px;
+  border: 1px solid #b5b5b5;
+  position: absolute;
+  width: 299px;
+  height: 162px;
+  z-index: 28;
+}
+
+#SHARESCREEN
+{
+  left: 1052px;
+  top: 278px;
+  position: absolute;
+  width: 80px;
+  height: 7px;
+  z-index:29;
+}
+.share{
+  left: 1052px;
+  top: 265px;
+  position: absolute;
+  width: 80px;
+  height: 7px;
+  z-index:29;
+  color:#000;
+  font-size:10px;
+  font-family:Arial;
+
+}
+
+#clink
+{
+  left: 1009px;
+  top: 306px;
+  position: absolute;
+  width: 322px;
+  height: 80px;
+  z-index:30;
+}
+
+#Layer18
+{
+  left: 1003px;
+  top: 304px;
+  position: absolute;
+  width: 340px;
+  height: 36px;
+  z-index:31;
+}
+
+#btn
+{
+  left: 1254px;
+  top: 347px;
+  position: absolute;
+  width: 66px;
+  height: 32px;
+  z-index:32;
+}
+
+#COPYLINK
+{
+  left: 1260px;
+  top: 361px;
+  position: absolute;
+  width: 54px;
+  height: 7px;
+  z-index:33;
+}
+
+#Layer20
+{
+  left: 1014px;
+  top: 347px;
+  position: absolute;
+  width: 235px;
+  height: 32px;
+  z-index:34;
+}
+
+#http
+{
+  left: 1021px;
+  top: 358px;
+  position: absolute;
+  width: 209px;
+  height: 10px;
+  z-index:35;
+}
+.fplace{
+  left: 1013px;
+  top: 350px;
+  position: absolute;
+  width: 230px;
+  height: 24px;
+  z-index: 35;
+}
+
+#Linktojoinconference
+{
+  left: 1019px;
+  top: 318px;
+  position: absolute;
+  width: 145px;
+  height: 14px;
+  z-index:36;
+}
+
+#cbox
+{
+  left: 1009px;
+  top: 394px;
+  position: absolute;
+  width: 322px;
+  height: 418px;
+  z-index:37;
+  border: 1px solid #b5b5b5;
+}
+
+#MeMyNameisJohnDoctor
+{
+  left: 1022px;
+  top: 453px;
+  position: absolute;
+  width: 198px;
+  height: 91px;
+  z-index:38;
+}
+
+#message
+{
+  left: 1009px;
+  top: 689px;
+  position: absolute;
+  width: 326px;
+  height: 80px;
+  background: #f6f6f6;
+  z-index: 39;
+  border-bottom: 1px solid #b5b5b5;
+  border-top: 1px solid #b5b5b5;
+}
+
+#mimg
+{
+  left: 1019px;
+  top: 697px;
+  position: absolute;
+  width: 135px;
+  height: 12px;
+  z-index:40;
+}
+
+#sbtn
+{
+  left: 1271px;
+  top: 777px;
+  position: absolute;
+  width: 55px;
+  height: 28px;
+  z-index:41;
+}
+
+#SEND
+{
+  left: 1282px;
+  top: 786px;
+  position: absolute;
+  width: 33px;
+  height: 9px;
+  z-index:42;
+}
+
+#Layer5_0
+{
+  left: 1000px;
+  top: 394px;
+  position: absolute;
+  width: 339px;
+  height: 46px;
+  z-index:43;
+}
+
+#Chat
+{
+  left: 1024px;
+  top: 410px;
+  position: absolute;
+  width: 38px;
+  height: 13px;
+  z-index:44;
+} 
+
+
